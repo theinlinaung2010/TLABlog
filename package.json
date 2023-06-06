@@ -1,0 +1,35 @@
+{
+  "name": "tla-blog",
+  "version": "1.0.0",
+  "private": true,
+  "description": "tla-blog",
+  "author": "Thein Lin Aung",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.0",
+    "@mdx-js/react": "^2.3.0",
+    "@theme-ui/mdx": "^0.15.7",
+    "gatsby": "^5.10.0",
+    "gatsby-plugin-google-gtag": "^5.10.0",
+    "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-manifest": "^5.10.0",
+    "gatsby-plugin-mdx": "^5.10.0",
+    "gatsby-plugin-sharp": "^5.10.0",
+    "gatsby-plugin-sitemap": "^6.10.0",
+    "gatsby-plugin-theme-ui": "^0.15.7",
+    "gatsby-source-filesystem": "^5.10.0",
+    "gatsby-transformer-sharp": "^5.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "theme-ui": "^0.15.7"
+  }
+}
