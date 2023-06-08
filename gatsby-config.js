@@ -3,16 +3,16 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `TLA-Blog`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: "TLA-Blog",
+    siteUrl: "https://www.yourdomain.tld",
   },
   plugins: [
     "gatsby-plugin-image",
-    `gatsby-remark-katex`,
+    "gatsby-remark-katex",
     {
-      resolve: `gatsby-plugin-mdx`,
+      resolve: "gatsby-plugin-mdx",
       options: {
-        gatsbyRemarkPlugins: [`gatsby-remark-katex`],
+        gatsbyRemarkPlugins: ["gatsby-remark-katex"],
       },
     },
     // "gatsby-plugin-sitemap",
@@ -41,10 +41,9 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: "posts",
+        path: "./src/content/posts",
       },
-      __key: "pages",
     },
   ],
 };
