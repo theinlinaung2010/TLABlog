@@ -3,7 +3,6 @@ import Navbar from "./navbar";
 import Footer from "./footer";
 
 import "normalize.css";
-import "../assets/css/main.css";
 import "katex/dist/katex.css";
 
 const Layout = ({ children }) => {

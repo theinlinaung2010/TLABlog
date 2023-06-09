@@ -12,7 +12,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-mdx",
       options: {
-        gatsbyRemarkPlugins: ["gatsby-remark-katex"],
+        gatsbyRemarkPlugins: ["gatsby-remark-katex", "gatsby-remark-images"],
       },
     },
     // "gatsby-plugin-sitemap",
@@ -42,7 +42,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: "./src/content/posts",
+        path: "./src/content/posts/",
       },
     },
   ],
