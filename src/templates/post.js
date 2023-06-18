@@ -1,19 +1,24 @@
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+
 import React from "react";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link } from "gatsby";
-import Layout from "../components/layout";
+import PostLayout from "../components/post-layout";
 
 const shortcodes = { Link }; // Provide common components here
 
-export default function PageTemplate({ data, children }) {
+export default function PostTemplate({ data, children }) {
+  const toc = data.mdx.tableOfContents;
+
   return (
-    <Layout>
-      <main className="page">
+    <PostLayout toc={toc}>
+      <div>
         <h1>{data.mdx.frontmatter.title}</h1>
         <MDXProvider components={shortcodes}>{children}</MDXProvider>
-      </main>
-    </Layout>
+      </div>
+    </PostLayout>
   );
 }
 
@@ -22,7 +27,9 @@ export const query = graphql`
     mdx(id: { eq: $id }) {
       frontmatter {
         title
+        date(formatString: "D-MM-YYYY")
       }
+      tableOfContents
     }
   }
 `;

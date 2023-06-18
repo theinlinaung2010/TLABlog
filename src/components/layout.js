@@ -1,18 +1,18 @@
-import React from "react";
-import Navbar from "./navbar";
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+import Header from "./header";
 import Footer from "./footer";
 
 import "normalize.css";
-import "katex/dist/katex.css";
 
-const Layout = ({ children }) => {
-  return (
-    <>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </>
-  );
-};
-
-export default Layout;
+export default (props) => (
+  <div
+    sx={{
+      variant: "layout.root",
+    }}
+  >
+    <Header></Header>
+    {props.children}
+    <Footer></Footer>
+  </div>
+);

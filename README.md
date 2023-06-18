@@ -1,12 +1,8 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
-  Gatsby Minimal Starter
+  Source code for <a href="https://theinlinaung.com">TLABlog</a>
 </h1>
 
+Gatsby source and post content for my personal blog. 
 ## 🚀 Quick start
 
 1.  **Create a Gatsby site.**
@@ -44,6 +40,6 @@
 
 ## 🚀 Quick start (Netlify)
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+Deploy this repo with one click on [Netlify](https://app.netlify.com/signup):
 
 [<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal)
