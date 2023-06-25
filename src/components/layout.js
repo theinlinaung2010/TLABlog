@@ -12,7 +12,7 @@ export default (props) => (
     }}
   >
     <Header></Header>
-    {props.children}
+    <div sx={{ flexGrow: 999 }}>{props.children}</div>
     <Footer></Footer>
   </div>
 );

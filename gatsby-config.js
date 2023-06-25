@@ -14,6 +14,7 @@ module.exports = {
       options: {
         extensions: [".mdx", ".md"],
         mdxOptions: {
+          strict: "ignore",
           remarkPlugins: [
             // Add GitHub Flavored Markdown (GFM) support
             require(`remark-gfm`),
@@ -52,6 +53,7 @@ module.exports = {
             resolve: "gatsby-remark-embed-video",
             options: {
               width: "100%",
+              ratio: 1.77, //16/9
               related: false, //Will remove related videos from the end of an embedded YouTube video.
               noIframeBorder: true, //Disable insertion of <style> border: 0
               loadingStrategy: "lazy",

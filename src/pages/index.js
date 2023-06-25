@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui";
+import { jsx, Container } from "theme-ui";
 import Layout from "../components/layout";
 
 import { Link, graphql } from "gatsby";
@@ -7,7 +7,7 @@ import { Link, graphql } from "gatsby";
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <main sx={{ maxWidth: "container" }}>
+      <Container as="main" sx={{ variant: "layout.main" }}>
         <h1>Welcome to my Blog.</h1>
         <ul>
           {data.allMdx.nodes.map((node) => (
@@ -16,14 +16,14 @@ const IndexPage = ({ data }) => {
             </li>
           ))}
         </ul>
-      </main>
+      </Container>
     </Layout>
   );
 };
 
 export default IndexPage;
 
-export const Head = () => <title>My Blog Home</title>;
+export const Head = () => <title>TLA Blog</title>;
 
 export const query = graphql`
   query {
