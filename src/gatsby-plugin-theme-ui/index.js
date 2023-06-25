@@ -2,10 +2,11 @@ export default {
   colors: {
     text: "#333",
     background: "#FCFCFC",
-    primary: "#1F69FF",
-    secondary: "#0036A3",
+    primary: "#0036A3",
+    secondary: "#1F69FF",
     accent: "#46237A",
     muted: "#F6F6F6",
+    line: "#CCCCCC",
   },
 
   fonts: {
@@ -29,20 +30,26 @@ export default {
   },
 
   sizes: {
-    container: 820,
+    container: 860,
     sidebar: 300,
   },
 
   lineHeights: {
     body: 1.8,
-    heading: 1.2,
-    table: 1.2,
+    heading: 1.6,
+    table: 1.5,
+  },
+
+  radii: {
+    default: "5px",
   },
 
   layout: {
     root: {
+      display: "flex",
+      flexDirection: "column",
       minHeight: "100vh",
-      bg: "background",
+      bg: "muted",
       color: "text",
     },
     header: {
@@ -64,25 +71,23 @@ export default {
       py: 1,
     },
     main: {
+      bg: "background",
       lineHeight: "body",
       fontFamily: "body",
       fontSize: "body",
       maxWidth: "container",
       mx: "auto",
-      px: [3, 3, 4],
+      flexGrow: 999,
+      px: [3, 3, 5],
+      py: [3, 3, 5],
     },
     sidebar: {
       bg: "muted",
       maxWidth: "container",
       flexGrow: 1,
       flexBasis: "sidebar",
-      px: [3, 3, 4],
+      px: [3, 3, 5],
       py: 4,
-    },
-    toc: {
-      position: "sticky",
-      top: "7rem",
-      lineHeight: "body",
     },
   },
 
@@ -108,27 +113,84 @@ export default {
       thead: {
         textAlign: "center",
       },
+      h1: {
+        fontSize: "h1",
+        lineHeight: "heading",
+      },
     },
-    h1: {
-      fontSize: "h1",
+
+    toc: {
+      position: "sticky",
+      top: "7rem",
+      fontSize: "body",
+      lineHeight: "2rem",
     },
+    tocitem: {
+      paddingLeft: 0,
+      listStyle: "none",
+      borderLeft: "2px solid",
+      paddingLeft: "1rem",
+      "&:active": {
+        color: "primary",
+      },
+    },
+
     h2: {
       fontSize: "h2",
       marginTop: "2rem",
     },
+
     h3: {
       fontSize: "h3",
     },
+
+    a: {
+      color: "primary",
+      textDecoration: "none",
+      textUnderlineOffset: "0.2rem",
+      "&:hover": {
+        color: "secondary",
+      },
+    },
+
     navlink: {
       color: "inherit",
       textDecoration: "none",
       lineHeight: 1,
-      px: [3, 3, 4],
+      px: 3,
       "&:hover": {
-        color: "primary",
+        color: "secondary",
       },
-      "&:active": {
-        color: "primary",
+    },
+
+    tag: {
+      color: "text",
+      bg: "muted",
+      fontSize: "small",
+      border: "1px solid",
+      display: "inline-block",
+      alignItems: "center",
+      px: 2,
+      marginRight: "0.5rem",
+      borderRadius: "default",
+    },
+
+    tagindex: {
+      color: "text",
+      bg: "muted",
+      border: "1px solid",
+      fontSize: "body",
+      lineHeight: 1,
+      display: "inline-block",
+      alignItems: "center",
+      px: 2,
+      py: 2,
+      marginBottom: "1rem",
+      marginRight: "1rem",
+      borderRadius: "default",
+      "&:hover": {
+        bg: "accent",
+        color: "white",
       },
     },
   },
