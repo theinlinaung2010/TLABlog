@@ -1,26 +1,33 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { Box, Heading, Link, Divider } from "@theme-ui/components";
+
+import {
+  Container,
+  Heading,
+  Link,
+  Divider,
+  Flex,
+  Box,
+  Label,
+} from "@theme-ui/components";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link as gatsbyLink } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
+
 import "katex/dist/katex.min.css";
 
 const shortcodes = { Link }; // Provide common components here
 
-export default function PostTemplate({ data, children, props }) {
+export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;
   const tags = data.mdx.frontmatter.tags;
 
   return (
     <Layout>
-      <div sx={{ display: "flex", flexWrap: "wrap" }}>
-        <Box
-          as="main"
-          sx={{ variant: "layout.main", flexgGrow: 9999, flexBasis: 0 }}
-        >
+      <Flex sx={{ flexWrap: "wrap-reverse" }}>
+        <Container as="main" sx={{ variant: "layout.main" }}>
           <Heading as="h1">{data.mdx.frontmatter.title}</Heading>
           <p>{data.mdx.frontmatter.date}</p>
           {tags.map((tag) => (
@@ -42,29 +49,25 @@ export default function PostTemplate({ data, children, props }) {
             }}
           />
           <MDXProvider components={shortcodes}>{children}</MDXProvider>
-        </Box>
+        </Container>
 
-        <aside
-          sx={{
-            variant: "layout.sidebar",
-            flexGrow: 1,
-            flexBasis: "sidebar",
-          }}
-        >
+        <Box as="aside" sx={{ variant: "layout.sidebar" }}>
           {toc.items === undefined ? null : toc.items.length > 1 ? (
-            <div sx={{ variant: "styles.toc" }}>
+            <Box sx={{ variant: "styles.toc" }}>
               <h3>မာတိကာ</h3>
-              <ul sx={{ variant: "styles.tocitem" }}>
+              <ul>
                 {toc.items.map((item) => (
-                  <li key={item.url}>
-                    <Link to={item.url}>{item.title}</Link>
-                  </li>
+                  <Label key={item.url} sx={{ variant: "styles.tocitem" }}>
+                    <Link as={gatsbyLink} to={item.url}>
+                      {item.title}
+                    </Link>
+                  </Label>
                 ))}
               </ul>
-            </div>
+            </Box>
           ) : null}
-        </aside>
-      </div>
+        </Box>
+      </Flex>
     </Layout>
   );
 }
