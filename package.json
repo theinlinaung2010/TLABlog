@@ -19,6 +19,7 @@
     "@mdx-js/react": "^2.3.0",
     "@theme-ui/mdx": "^0.15.7",
     "@theme-ui/preset-bootstrap": "^0.15.7",
+    "dagre": "^0.8.5",
     "gatsby": "^5.10.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^3.10.0",
@@ -41,6 +42,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
+    "reactflow": "^11.7.4",
     "remark-html-katex": "^3.0.0",
     "remark-math": "^3.0.1",
     "theme-ui": "^0.15.7"

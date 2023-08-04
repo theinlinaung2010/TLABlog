@@ -42,7 +42,7 @@ export default function PostTemplate({ data, children }) {
           ))}
           <Divider
             sx={{
-              borderTop: "2px solid",
+              borderTop: "1px solid",
               color: "line",
               marginTop: "1.5rem",
               marginBottom: "1.5rem",
@@ -55,7 +55,7 @@ export default function PostTemplate({ data, children }) {
           {toc.items === undefined ? null : toc.items.length > 1 ? (
             <Box sx={{ variant: "styles.toc" }}>
               <h3>မာတိကာ</h3>
-              <ul>
+              <ul style={{ padding: 0}}>
                 {toc.items.map((item) => (
                   <Label key={item.url} sx={{ variant: "styles.tocitem" }}>
                     <Link as={gatsbyLink} to={item.url}>

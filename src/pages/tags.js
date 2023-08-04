@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Grid, Box } from "theme-ui";
-import { graphql } from "gatsby";
 import TagsIndex from "../components/tagsIndex";
 
 import Layout from "../components/layout";

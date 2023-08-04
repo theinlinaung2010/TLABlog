@@ -98,6 +98,7 @@ export default {
       fontSize: "body",
       color: "text",
       bg: "background",
+      scrollBehavior: "smooth",
       figcaption: {
         fontWeight: 600,
         marginTop: "1rem",
@@ -116,12 +117,18 @@ export default {
         fontSize: "h1",
         lineHeight: "heading",
       },
+      h2: {
+        scrollMarginTop: "4rem",
+      },
+      h3: {
+        scrollMarginTop: "4rem",
+      },
     },
 
     toc: {
       position: "sticky",
       top: "7rem",
-      fontSize: "body",
+      fontSize: "small",
       lineHeight: "2rem",
     },
     tocitem: {

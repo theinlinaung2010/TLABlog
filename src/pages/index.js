@@ -1,39 +1,20 @@
 /** @jsx jsx */
-import { jsx, Container } from "theme-ui";
-import Layout from "../components/layout";
+import React from 'react'
+import { jsx } from "theme-ui";
+import Header from "../components/header";
+import PostMap from '../components/postmap'
 
-import { Link, graphql } from "gatsby";
-
-const IndexPage = ({ data }) => {
+const Map = () => {
   return (
-    <Layout>
-      <Container as="main" sx={{ variant: "layout.main" }}>
-        <h1>Welcome to my Blog.</h1>
-        <ul>
-          {data.allMdx.nodes.map((node) => (
-            <li key={node.title}>
-              <Link to={node.frontmatter.slug}>{node.frontmatter.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </Container>
-    </Layout>
+    <div>
+      <Header />
+      <div style={{ width: '100%'}}>
+        <PostMap />
+      </div>
+    </div>
   );
 };
 
-export default IndexPage;
+export default Map;
 
-export const Head = () => <title>TLA Blog</title>;
-
-export const query = graphql`
-  query {
-    allMdx {
-      nodes {
-        frontmatter {
-          slug
-          title
-        }
-      }
-    }
-  }
-`;
+export const Head = () => <title>Map</title>;
