@@ -5,15 +5,13 @@ import { jsx } from "theme-ui";
 import Layout from "../components/layout";
 import TagsIndex from "../components/tagsIndex";
 import { Link as gatsbyLink, graphql } from "gatsby";
-import { Grid, Link } from "theme-ui";
+import { Grid, Link, Card } from "theme-ui";
 import kebabCase from "lodash/kebabCase";
 
 const Tags = ({ pageContext, data }) => {
   const tag = pageContext.tag;
   const totalCount = data.filteredMdx.totalCount;
-  const tagHeader = `${totalCount} post${
-    totalCount === 1 ? "" : "s"
-  } tagged with "${tag}"`;
+  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with "${tag}"`;
 
   const nodes = data.filteredMdx.nodes;
   return (
@@ -32,19 +30,19 @@ const Tags = ({ pageContext, data }) => {
               const { slug, date, tags } = node.frontmatter;
 
               return (
-                <div key={slug}>
+                <Card key={slug} sx={{ lineHeight: "1.2rem" }}>
                   <Link as={gatsbyLink} to={`/${slug}`}>
                     <h3>{title}</h3>
                   </Link>
 
+                  <p>{date}</p>
                   <p>
-                    {date}
-                    <span> ● Tag: </span>
                     {tags.map((tag) => (
                       <Link
                         as={gatsbyLink}
                         key={tag.toLowerCase()}
                         to={`/tags/${kebabCase(tag)}`}
+                        sx={{ variant: "styles.tag" }}
                       >
                         {tag.toLowerCase()}
                       </Link>
@@ -52,7 +50,7 @@ const Tags = ({ pageContext, data }) => {
                   </p>
 
                   {/* <p>{excerpt}</p> */}
-                </div>
+                </Card>
               );
             })}
           </div>
@@ -66,17 +64,14 @@ export default Tags;
 
 export const pageQuery = graphql`
   query ($tag: String) {
-    filteredMdx: allMdx(
-      limit: 2000
-      filter: { frontmatter: { tags: { in: [$tag] } } }
-    ) {
+    filteredMdx: allMdx(limit: 2000, filter: { frontmatter: { tags: { in: [$tag] } } }) {
       totalCount
       nodes {
         id
         frontmatter {
           title
           slug
-          date
+          date(formatString: "D MMMM YYYY")
           tags
         }
       }

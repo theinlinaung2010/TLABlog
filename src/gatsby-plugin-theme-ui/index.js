@@ -41,7 +41,17 @@ export default {
   },
 
   radii: {
-    default: "5px",
+    default: "10px",
+  },
+
+  cards: {
+    primary: {
+      padding: 3,
+      paddingLeft: 5,
+      marginBottom: 3,
+      borderRadius: "default",
+      boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
+    },
   },
 
   layout: {
@@ -177,7 +187,9 @@ export default {
       border: "1px solid",
       display: "inline-block",
       alignItems: "center",
+      lineHeight: 1,
       px: 2,
+      py: 2,
       marginRight: "0.5rem",
       borderRadius: "default",
     },
