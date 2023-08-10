@@ -1,24 +1,18 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 
-import {
-  Container,
-  Heading,
-  Link,
-  Divider,
-  Flex,
-  Box,
-  Label,
-} from "@theme-ui/components";
+import { Container, Heading, Link, Divider, Flex, Box, Label } from "@theme-ui/components";
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link as gatsbyLink } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
+import Blockquote from "../components/blockquote";
+import Iframe from "../components/iframe";
 
 import "katex/dist/katex.min.css";
 
-const shortcodes = { Link }; // Provide common components here
+const shortcodes = { Link, Box, Blockquote, Iframe }; // Provide common components here
 
 export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;
@@ -31,12 +25,7 @@ export default function PostTemplate({ data, children }) {
           <Heading as="h1">{data.mdx.frontmatter.title}</Heading>
           <p>{data.mdx.frontmatter.date}</p>
           {tags.map((tag) => (
-            <Link
-              as={gatsbyLink}
-              key={tag}
-              to={`/tags/${kebabCase(tag)}`}
-              sx={{ variant: "styles.tag" }}
-            >
+            <Link as={gatsbyLink} key={tag} to={`/tags/${kebabCase(tag)}`} sx={{ variant: "styles.tag" }}>
               {tag}
             </Link>
           ))}
@@ -55,7 +44,7 @@ export default function PostTemplate({ data, children }) {
           {toc.items === undefined ? null : toc.items.length > 1 ? (
             <Box sx={{ variant: "styles.toc" }}>
               <h3>မာတိကာ</h3>
-              <ul style={{ padding: 0}}>
+              <ul style={{ padding: 0 }}>
                 {toc.items.map((item) => (
                   <Label key={item.url} sx={{ variant: "styles.tocitem" }}>
                     <Link as={gatsbyLink} to={item.url}>

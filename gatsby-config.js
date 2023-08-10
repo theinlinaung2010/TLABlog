@@ -49,16 +49,8 @@ module.exports = {
               className: "remark-anchor",
             },
           },
-          {
-            resolve: "gatsby-remark-embed-video",
-            options: {
-              width: "100%",
-              ratio: 1.77, //16/9
-              related: false, //Will remove related videos from the end of an embedded YouTube video.
-              noIframeBorder: true, //Disable insertion of <style> border: 0
-              loadingStrategy: "lazy",
-            },
-          },
+          "gatsby-plugin-mdx-embed",
+          "gatsby-remark-responsive-iframe",
         ],
         // ========= End of Gatsby Remark Plugins ========= //
       },
