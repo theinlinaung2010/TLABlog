@@ -30,9 +30,9 @@ const Tags = ({ pageContext, data }) => {
               const { slug, date, tags } = node.frontmatter;
 
               return (
-                <Card key={slug} sx={{ lineHeight: "1.2rem" }}>
+                <Card key={slug} sx={{ variant: "cards.article" }}>
                   <Link as={gatsbyLink} to={`/${slug}`}>
-                    <h3>{title}</h3>
+                    <h3 sx={{ lineHeight: "1.8rem" }}>{title}</h3>
                   </Link>
 
                   <p>{date}</p>

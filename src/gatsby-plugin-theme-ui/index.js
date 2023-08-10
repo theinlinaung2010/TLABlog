@@ -47,7 +47,15 @@ export default {
   cards: {
     primary: {
       padding: 3,
+      borderRadius: "default",
+      boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
+    },
+
+    article: {
       paddingLeft: 5,
+      paddingRight: 5,
+      paddingTop: 3,
+      paddingBottom: 2,
       marginBottom: 3,
       borderRadius: "default",
       boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
@@ -191,6 +199,7 @@ export default {
       px: 2,
       py: 2,
       marginRight: "0.5rem",
+      marginBottom: "0.5rem",
       borderRadius: "default",
     },
 
