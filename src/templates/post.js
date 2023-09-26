@@ -20,7 +20,9 @@ export default function PostTemplate({ data, children }) {
 
   return (
     <Layout>
-      <Flex sx={{ flexWrap: "wrap-reverse" }}>
+      <Flex>
+        <Box as="aside" sx={{ variant: "layout.sidebarLeft" }}></Box>
+
         <Container as="main" sx={{ variant: "layout.main" }}>
           <Heading as="h1">{data.mdx.frontmatter.title}</Heading>
           <p>{data.mdx.frontmatter.date}</p>
@@ -40,7 +42,7 @@ export default function PostTemplate({ data, children }) {
           <MDXProvider components={shortcodes}>{children}</MDXProvider>
         </Container>
 
-        <Box as="aside" sx={{ variant: "layout.sidebar" }}>
+        <Box as="aside" sx={{ variant: "layout.sidebarRight" }}>
           {toc.items === undefined ? null : toc.items.length > 1 ? (
             <Box sx={{ variant: "styles.toc" }}>
               <h3>မာတိကာ</h3>

@@ -62,6 +62,8 @@ export default {
     },
   },
 
+  breakpoints: ["45em", "85em"],
+
   layout: {
     root: {
       display: "flex",
@@ -94,17 +96,21 @@ export default {
       fontFamily: "body",
       fontSize: "body",
       maxWidth: "container",
-      flexGrow: 1,
-      marginLeft: ["0", "0", "25%"],
+      flex: "3 0",
       px: [3, 3, 5],
       py: [3, 3, 5],
     },
-    sidebar: {
+    sidebarLeft: {
       bg: "muted",
-      flexShrink: 0,
-      width: ["100%", "100%", "25%"],
-      px: [3, 3, 5],
-      py: 4,
+      display: ["none", "none", "block"],
+      flex: "1 0",
+      px: [3, 3, 4],
+    },
+    sidebarRight: {
+      bg: "muted",
+      display: ["none", "block", "block"],
+      flex: "1 0",
+      px: [3, 3, 4],
     },
   },
 
@@ -145,7 +151,7 @@ export default {
 
     toc: {
       position: "sticky",
-      top: "7rem",
+      top: ["3rem", "6rem", "7rem"],
       fontSize: "small",
       lineHeight: "2rem",
     },
