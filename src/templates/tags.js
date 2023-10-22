@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data }) => {
 
   const nodes = data.filteredMdx.nodes;
   return (
-    <Layout>
+    <Layout variant="layout.contrastbg">
       {/* <SEO title={`"${tag}" tag`} /> */}
       <Grid gap={2} columns={[2, "1fr 1fr"]} sx={{ padding: [1, 3, 5] }}>
         <TagsIndex />

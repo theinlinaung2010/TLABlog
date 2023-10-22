@@ -4,10 +4,11 @@ import { Grid, Box } from "theme-ui";
 import TagsIndex from "../components/tagsIndex";
 
 import Layout from "../components/layout";
+import { layout } from "dagre";
 // import SEO from "../components/seo";
 
 const TagsPage = ({ data }) => (
-  <Layout>
+  <Layout variant="layout.contrastbg">
     {/* <SEO title="Tags" /> */}
     <Grid gap={2} columns={[2, "1fr 1fr"]} sx={{ padding: [1, 3, 5] }}>
       <TagsIndex />

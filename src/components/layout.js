@@ -8,7 +8,7 @@ import "normalize.css";
 export default (props) => (
   <div
     sx={{
-      variant: "layout.root",
+      variant: props.variant === "" ? "layout.default" : props.variant,
     }}
   >
     <Header></Header>

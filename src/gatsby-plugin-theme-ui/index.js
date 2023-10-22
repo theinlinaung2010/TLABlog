@@ -54,22 +54,30 @@ export default {
     article: {
       paddingLeft: 5,
       paddingRight: 5,
-      paddingTop: 3,
-      paddingBottom: 2,
+      paddingTop: 2,
+      paddingBottom: 1.5,
       marginBottom: 3,
       borderRadius: "default",
       boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
+      lineHeight: "1.0rem",
     },
   },
 
   breakpoints: ["45em", "85em"],
 
   layout: {
-    root: {
+    default: {
       display: "flex",
       flexDirection: "column",
       minHeight: "100vh",
       bg: "muted",
+      color: "text",
+    },
+    contrastbg: {
+      display: "flex",
+      flexDirection: "column",
+      minHeight: "100vh",
+      bg: "white",
       color: "text",
     },
     header: {
@@ -198,7 +206,7 @@ export default {
       color: "text",
       bg: "muted",
       fontSize: "small",
-      border: "1px solid",
+      border: "none",
       display: "inline-block",
       alignItems: "center",
       lineHeight: 1,
@@ -212,7 +220,7 @@ export default {
     tagindex: {
       color: "text",
       bg: "muted",
-      border: "1px solid",
+      border: "none",
       fontSize: "body",
       lineHeight: 1,
       display: "inline-block",
