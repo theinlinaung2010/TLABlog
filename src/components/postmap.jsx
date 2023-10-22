@@ -1,10 +1,5 @@
 import React, { useCallback } from "react";
-import ReactFlow, {
-  addEdge,
-  ConnectionLineType,
-  useNodesState,
-  useEdgesState,
-} from "reactflow";
+import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from "reactflow";
 import dagre from "dagre";
 
 import { Link as gatsbyLink, useStaticQuery, graphql } from "gatsby";
@@ -18,6 +13,16 @@ import "reactflow/dist/style.css";
 const nodeWidth = 120;
 const nodeHeight = 20;
 
+function getTextWidth(text, font) {
+  // re-use canvas object for better performance
+  const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+  const context = canvas.getContext("2d");
+  context.font = font;
+  const metrics = context.measureText(text);
+  return metrics.width;
+}
+
+// dagre layout function
 const getLayoutedElements = (nodes, edges, isLeft) => {
   const dagreGraph = new dagre.graphlib.Graph();
   dagreGraph.setDefaultEdgeLabel(() => ({}));
@@ -43,7 +48,7 @@ const getLayoutedElements = (nodes, edges, isLeft) => {
     // shifting the dagre node position (anchor=center center) to the top left
     if (isLeft) {
       node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2 - nodeWidth * 2,
+        x: nodeWithPosition.x - nodeWidth / 2 - nodeWidth * 2 - getTextWidth(node.data.label, "12px sans-serif"),
         y: nodeWithPosition.y - nodeHeight / 2,
       };
     } else {
@@ -65,8 +70,9 @@ const nodeTypes = {
   postNode: PostNode,
 };
 
+// the main component
 const LayoutFlow = () => {
-  // query the categories
+  // query the mdx
   const data = useStaticQuery(graphql`
     query {
       allMdx(limit: 2000) {
@@ -99,7 +105,8 @@ const LayoutFlow = () => {
 
   const catNodes = catGroup.map((cat, index) => ({
     id: cat.fieldValue,
-    data: { label: cat.fieldValue, url: "https://www.google.com" },
+    data: { label: cat.fieldValue, url: "" },
+    category: cat.fieldValue,
     type: "categoryNode",
     position,
   }));
@@ -112,76 +119,44 @@ const LayoutFlow = () => {
     position,
   }));
 
-  // divide the catNodes into two groups
+  // divide the category nodes into two groups
   const left_catNodes = catNodes.slice(0, Math.floor(catNodes.length / 2));
   const right_catNodes = catNodes.slice(Math.floor(catNodes.length / 2));
 
-  const leftPostNodes = [];
-  const rightPostNodes = [];
+  const allNodes = [...catNodes, ...postNodes];
 
-  // divide the postNodes into two groups
-  postNodes.forEach((node) => {
+  // divide all nodes into left and right based on the category
+  const leftNodes = [];
+  const rightNodes = [];
+
+  allNodes.forEach((node) => {
     const isLeft = left_catNodes.some((cat) => cat.id === node.category);
+    node.isLeft = isLeft;
 
     if (isLeft) {
-      leftPostNodes.push(node);
+      leftNodes.push(node);
     } else {
-      rightPostNodes.push(node);
+      rightNodes.push(node);
     }
   });
+  rightNodes.push(centerNode);
 
-  const left_edges = left_catNodes.map((node) => ({
-    id: `e1${node.id}`,
-    source: "1",
-    target: node.id,
-    sourceHandle: "l",
-    targetHandle: "tr",
-  }));
-
-  const left_post_edges = leftPostNodes.map((node) => ({
+  // create edges for all nodes
+  const allEdges = allNodes.map((node) => ({
     id: `e${node.id}`,
-    source: node.category,
+    source: node.type === "postNode" ? node.category : "1",
     target: node.id,
-    sourceHandle: "sl",
-    targetHandle: "tr",
-  }));
-  left_edges.push(...left_post_edges);
-
-  const right_edges = right_catNodes.map((node) => ({
-    id: `e1${node.id}`,
-    source: "1",
-    target: node.id,
-    sourceHandle: "r",
-    targetHandle: "tl",
+    sourceHandle: node.isLeft ? "l" : "r",
+    targetHandle: node.isLeft ? "tr" : "tl",
+    isLeft: node.isLeft,
   }));
 
-  const right_post_edges = rightPostNodes.map((node) => ({
-    id: `e${node.id}`,
-    source: node.category,
-    target: node.id,
-    sourceHandle: "sr",
-    targetHandle: "tl",
-  }));
-  right_edges.push(...right_post_edges);
+  // separate the edges into left and right
+  const leftEdges = allEdges.filter((edge) => edge.isLeft);
+  const rightEdges = allEdges.filter((edge) => !edge.isLeft);
 
-  // add the center node to the left nodes
-  left_catNodes.push(centerNode);
-
-  // combine the postNodes with the catNodes
-  left_catNodes.push(...leftPostNodes);
-  right_catNodes.push(...rightPostNodes);
-
-  const { nodes: lLayoutedNodes, edges: lLayoutedEdges } = getLayoutedElements(
-    left_catNodes,
-    left_edges,
-    true
-  );
-
-  const { nodes: rLayoutedNodes, edges: rLayoutedEdges } = getLayoutedElements(
-    right_catNodes,
-    right_edges,
-    false
-  );
+  const { nodes: lLayoutedNodes, edges: lLayoutedEdges } = getLayoutedElements(leftNodes, leftEdges, true);
+  const { nodes: rLayoutedNodes, edges: rLayoutedEdges } = getLayoutedElements(rightNodes, rightEdges, false);
 
   const allLayoutedNodes = [...lLayoutedNodes, ...rLayoutedNodes];
   const allLayoutedEdges = [...lLayoutedEdges, ...rLayoutedEdges];

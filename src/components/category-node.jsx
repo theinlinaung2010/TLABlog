@@ -15,31 +15,11 @@ export default memo(({ data, isConnectable }) => {
         borderRadius: 30,
       }}
     >
-      <Handle
-        type="target"
-        position={Position.Left}
-        id="tl"
-        isConnectable={isConnectable}
-      />
-      <Handle
-        type="target"
-        position={Position.Right}
-        id="tr"
-        isConnectable={isConnectable}
-      />
+      <Handle type="target" position={Position.Left} id="tl" isConnectable={isConnectable} />
+      <Handle type="target" position={Position.Right} id="tr" isConnectable={isConnectable} />
       <div>{data.label}</div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="sr"
-        isConnectable={isConnectable}
-      />
-      <Handle
-        type="source"
-        position={Position.Left}
-        id="sl"
-        isConnectable={isConnectable}
-      />
+      <Handle type="source" position={Position.Right} id="r" isConnectable={isConnectable} />
+      <Handle type="source" position={Position.Left} id="l" isConnectable={isConnectable} />
     </div>
   );
 });
