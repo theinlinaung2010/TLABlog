@@ -4,6 +4,9 @@ date: "2017-11-14"
 slug: "rotations-part-1"
 categories:
   - "science"
+tags:
+  - "torque"
+  - "rotation"
 coverImage: "angular-velocity-vs-tangential-velocity2.png"
 ---
 
@@ -68,9 +71,7 @@ $ ds $ နဲ့ $ d\theta $ နဲ့ဆက်သွယ်ချက်က−
 $$
 ds=r\space d\theta \\
 \frac{ds}{dt}=r\space \frac{d\theta }{dt} \\
-v=r \omega 
+v=r \omega
 $$
 
-
 $ \omega $ က ထောင့်ပြောင်းအလျင် (angular velocity) ဖြစ်ပြီး rad/s နဲ့ ဖော်ပြပါတယ်။
-
