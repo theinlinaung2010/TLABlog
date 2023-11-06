@@ -1,12 +1,31 @@
 export default {
+  initialColorModeName: "light",
   colors: {
     text: "#333",
     background: "#FCFCFC",
-    primary: "#0036A3",
-    secondary: "#1F69FF",
-    accent: "#46237A",
+    primary: "#4780f4",
+    secondary: "#236cff",
+    accent: "#408cca",
     muted: "#F6F6F6",
+    header: "rgba(17, 33, 60, 0.75)",
     line: "#CCCCCC",
+    link: "#0036A3",
+    label: "#F6F6F6",
+
+    modes: {
+      dark: {
+        text: "#fafafa",
+        background: "#1f1f1f",
+        primary: "#3879fa",
+        secondary: "#8fb5ff",
+        accent: "#4da9ff",
+        muted: "#181818",
+        header: "rgba(25, 35, 52, 0.75)",
+        line: "#4c4c4c",
+        link: "#5b93ff",
+        label: "#2e2e2e",
+      },
+    },
   },
 
   fonts: {
@@ -48,17 +67,18 @@ export default {
     primary: {
       padding: 3,
       borderRadius: "default",
-      boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
     },
 
     article: {
+      bg: "none",
+      border: "2px solid",
+      borderColor: "line",
       paddingLeft: 5,
       paddingRight: 5,
       paddingTop: 2,
       paddingBottom: 1.5,
       marginBottom: 3,
       borderRadius: "default",
-      boxShadow: "0 0 5px rgba(0, 0, 0, 0.225)",
       lineHeight: "1.0rem",
     },
   },
@@ -81,19 +101,19 @@ export default {
       color: "text",
     },
     header: {
+      bg: "header",
+      backdropFilter: "blur(5px)",
       color: "white",
-      bg: "accent",
       fontSize: "header",
       alignItems: "center",
       width: "100%",
       position: "sticky",
       top: 0,
-      py: 3,
       zIndex: 1,
     },
     footer: {
+      bg: "header",
       color: "white",
-      bg: "accent",
       fontSize: "footer",
       alignItems: "center",
       py: 1,
@@ -144,7 +164,12 @@ export default {
       },
       thead: {
         textAlign: "center",
+        color: "text",
       },
+      td: {
+        color: "text",
+      },
+
       h1: {
         fontSize: "h1",
         lineHeight: "heading",
@@ -161,7 +186,7 @@ export default {
       position: "sticky",
       top: ["3rem", "6rem", "7rem"],
       fontSize: "small",
-      lineHeight: "2rem",
+      lineHeight: "1.5rem",
     },
     tocitem: {
       paddingLeft: 0,
@@ -169,9 +194,8 @@ export default {
       borderLeft: "2px solid",
       borderColor: "line",
       paddingLeft: "1rem",
-      "&:active": {
-        color: "primary",
-      },
+      paddingTop: "0.5rem",
+      paddingBottom: "0.5rem",
     },
 
     h2: {
@@ -184,27 +208,30 @@ export default {
     },
 
     a: {
-      color: "primary",
+      color: "link",
       textDecoration: "none",
       textUnderlineOffset: "0.2rem",
       "&:hover": {
         color: "secondary",
+        textDecoration: "none",
       },
     },
 
     navlink: {
       color: "inherit",
+      border: "0px solid",
       textDecoration: "none",
       lineHeight: 1,
       px: 3,
+      py: 3,
       "&:hover": {
-        color: "secondary",
+        bg: "accent",
       },
     },
 
     tag: {
       color: "text",
-      bg: "muted",
+      bg: "label",
       fontSize: "small",
       border: "none",
       display: "inline-block",
@@ -219,7 +246,7 @@ export default {
 
     tagindex: {
       color: "text",
-      bg: "muted",
+      bg: "label",
       border: "none",
       fontSize: "body",
       lineHeight: 1,
@@ -230,9 +257,25 @@ export default {
       marginBottom: "1rem",
       marginRight: "1rem",
       borderRadius: "default",
+    },
+
+    colormodeButton: {
+      background: "none",
+      color: "inherit",
+      border: "none",
+      cursor: "pointer",
+      display: "block",
+      mr: "0.5em",
+      width: 30,
+      height: 30,
+
+      "& svg": {
+        fill: "white",
+      },
       "&:hover": {
-        bg: "accent",
-        color: "white",
+        "& svg": {
+          fill: "accent",
+        },
       },
     },
   },

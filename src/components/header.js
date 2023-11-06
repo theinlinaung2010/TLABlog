@@ -1,6 +1,7 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import { Link } from "gatsby";
+import ColormodeButton from "./colormode-button";
 
 const Header = () => {
   return (
@@ -34,6 +35,7 @@ const Header = () => {
           Tags
         </Link>
         <div sx={{ mx: "auto" }} />
+        <ColormodeButton />
         <Link
           to="/about"
           sx={{
