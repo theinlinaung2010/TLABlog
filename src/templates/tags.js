@@ -5,7 +5,7 @@ import { jsx } from "theme-ui";
 import Layout from "../components/layout";
 import TagsIndex from "../components/tagsIndex";
 import { Link as gatsbyLink, graphql } from "gatsby";
-import { Grid, Link, Card } from "theme-ui";
+import { Flex, Link, Card } from "theme-ui";
 import kebabCase from "lodash/kebabCase";
 
 const Tags = ({ pageContext, data }) => {
@@ -15,13 +15,15 @@ const Tags = ({ pageContext, data }) => {
 
   const nodes = data.filteredMdx.nodes;
   return (
-    <Layout variant="layout.contrastbg">
+    <Layout>
       {/* <SEO title={`"${tag}" tag`} /> */}
-      <Grid gap={2} columns={[2, "1fr 1fr"]} sx={{ padding: [1, 3, 5] }}>
-        <TagsIndex />
+      <Flex sx={{ padding: [1, 3, 5], flexDirection: ["column", "column", "row"] }}>
+        <div sx={{ display: ["none", "none", "block"] }}>
+          <TagsIndex sx={{ flex: "1 0 50%" }}></TagsIndex>
+        </div>
 
-        <div sx={{ px: 3, borderLeft: "2px solid", borderColor: "line" }}>
-          <div sx={{ px: 3, marginLeft: "1rem" }}>
+        <div sx={{ flex: "1 0 50%", px: [1, 2, 3], borderLeft: ["none", "none", "2px solid"], borderColor: "line" }}>
+          <div sx={{ px: [1, 2, 3], marginLeft: [0, 0, "1rem"] }}>
             <h1>{tagHeader}</h1>
 
             {nodes.map((node) => {
@@ -35,7 +37,7 @@ const Tags = ({ pageContext, data }) => {
                     <h3 sx={{ lineHeight: "1.8rem" }}>{title}</h3>
                   </Link>
 
-                  <p>{date}</p>
+                  <p sx={{ fontSize: "small" }}>{date}</p>
                   <p>
                     {tags.map((tag) => (
                       <Link
@@ -55,7 +57,7 @@ const Tags = ({ pageContext, data }) => {
             })}
           </div>
         </div>
-      </Grid>
+      </Flex>
     </Layout>
   );
 };
