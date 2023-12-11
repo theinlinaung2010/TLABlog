@@ -9,8 +9,10 @@ export default memo(({ data, isConnectable }) => {
     <div
       className="center-node"
       sx={{
-        padding: "10px 10px",
+        padding: "10px 20px",
         border: "1px solid",
+        backgroundColor: "primary",
+        color: "background",
         borderRadius: 100,
       }}
     >

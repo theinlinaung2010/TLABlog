@@ -1,5 +1,13 @@
 import React, { useCallback } from "react";
-import ReactFlow, { addEdge, ConnectionLineType, useNodesState, useEdgesState } from "reactflow";
+import ReactFlow, {
+  ReactFlowProvider,
+  Controls,
+  ConnectionLineType,
+  useStoreApi,
+  useReactFlow,
+  useNodesState,
+  useEdgesState,
+} from "reactflow";
 import dagre from "dagre";
 
 import { Link as gatsbyLink, useStaticQuery, graphql } from "gatsby";
@@ -10,7 +18,8 @@ import PostNode from "./post-node.jsx";
 
 import "reactflow/dist/style.css";
 
-const nodeWidth = 120;
+const screenWidth = window.innerWidth;
+const nodeWidth = Math.min(screenWidth * 0.15, 100);
 const nodeHeight = 20;
 
 function getTextWidth(text, font) {
@@ -48,13 +57,13 @@ const getLayoutedElements = (nodes, edges, isLeft) => {
     // shifting the dagre node position (anchor=center center) to the top left
     if (isLeft) {
       node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2 - nodeWidth * 2 - getTextWidth(node.data.label, "12px sans-serif"),
-        y: nodeWithPosition.y - nodeHeight / 2,
+        x: nodeWithPosition.x - nodeWidth * 2 - getTextWidth(node.data.label, "12px sans-serif"),
+        y: nodeWithPosition.y,
       };
     } else {
       node.position = {
-        x: nodeWithPosition.x - nodeWidth / 2 + nodeWidth * 2,
-        y: nodeWithPosition.y - nodeHeight / 2,
+        x: nodeWithPosition.x + nodeWidth * 2,
+        y: nodeWithPosition.y,
       };
     }
 
@@ -98,7 +107,7 @@ const LayoutFlow = () => {
 
   const centerNode = {
     id: "1",
-    data: { label: "All Posts", url: "" },
+    data: { label: "TLA Blog", url: "" },
     type: "centerNode",
     position,
   };
@@ -164,18 +173,47 @@ const LayoutFlow = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(allLayoutedNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(allLayoutedEdges);
 
+  const store = useStoreApi();
+  const { zoomIn, zoomOut, setCenter } = useReactFlow();
+
+  const focusNode = () => {
+    const { nodeInternals } = store.getState();
+    const nodes = Array.from(nodeInternals).map(([, node]) => node);
+
+    const _centerNode = nodes.find((node) => node.type === "centerNode");
+
+    if (_centerNode) {
+      const x = _centerNode.position.x + _centerNode.width / 2;
+      const y = _centerNode.position.y + _centerNode.height / 2;
+      const zoom = 1.2;
+
+      setCenter(x, y, { zoom, duration: 800 });
+    }
+  };
+
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        nodeTypes={nodeTypes}
-        onNodesChange={onNodesChange}
-        connectionLineType={ConnectionLineType.SmoothStep}
-        fitView
-      ></ReactFlow>
-    </div>
+    <ReactFlow
+      nodes={nodes}
+      edges={edges}
+      nodeTypes={nodeTypes}
+      onNodesChange={onNodesChange}
+      connectionLineType={ConnectionLineType.SmoothStep}
+      fitView
+      onInit={focusNode}
+    >
+      <Controls showInteractive={false} />
+    </ReactFlow>
   );
 };
 
-export default LayoutFlow;
+function PostMap(props) {
+  return (
+    <div style={{ width: "100%", height: "100%" }}>
+      <ReactFlowProvider>
+        <LayoutFlow />
+      </ReactFlowProvider>
+    </div>
+  );
+}
+
+export default PostMap;

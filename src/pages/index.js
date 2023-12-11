@@ -1,14 +1,14 @@
 /** @jsx jsx */
-import React from 'react'
+import React from "react";
 import { jsx } from "theme-ui";
 import Header from "../components/header";
-import PostMap from '../components/postmap'
+import PostMap from "../components/postmap";
 
 const Map = () => {
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column", height: "100vh" }}>
       <Header />
-      <div style={{ width: '100%'}}>
+      <div style={{ flex: 1 }}>
         <PostMap />
       </div>
     </div>
