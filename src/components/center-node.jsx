@@ -14,19 +14,9 @@ export default memo(({ data, isConnectable }) => {
         borderRadius: 100,
       }}
     >
-      <Handle
-        type="source"
-        id="l"
-        position={Position.Left}
-        isConnectable={isConnectable}
-      />
+      <Handle type="source" id="l" position={Position.Left} isConnectable={isConnectable} />
       <div>{data.label}</div>
-      <Handle
-        type="source"
-        position={Position.Right}
-        id="r"
-        isConnectable={isConnectable}
-      />
+      <Handle type="source" position={Position.Right} id="r" isConnectable={isConnectable} />
     </div>
   );
 });
