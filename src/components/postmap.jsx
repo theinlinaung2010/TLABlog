@@ -2,6 +2,7 @@ import React, { useCallback } from "react";
 import ReactFlow, {
   ReactFlowProvider,
   Controls,
+  Background,
   ConnectionLineType,
   useStoreApi,
   useReactFlow,
@@ -11,6 +12,7 @@ import ReactFlow, {
 import dagre from "dagre";
 
 import { Link as gatsbyLink, useStaticQuery, graphql } from "gatsby";
+import { useThemeUI } from "theme-ui";
 
 import CategoryNode from "./category-node.jsx";
 import CenterNode from "./center-node.jsx";
@@ -191,6 +193,8 @@ const LayoutFlow = () => {
     }
   };
 
+  const { theme } = useThemeUI();
+
   return (
     <ReactFlow
       nodes={nodes}
@@ -202,6 +206,7 @@ const LayoutFlow = () => {
       onInit={focusNode}
     >
       <Controls showInteractive={false} />
+      <Background color={theme.colors.bgrid} variant="lines" gap={15} size={1} />
     </ReactFlow>
   );
 };

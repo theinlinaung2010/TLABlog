@@ -7,7 +7,8 @@ export default {
     secondary: "#236cff",
     accent: "#408cca",
     muted: "#F6F6F6",
-    header: "rgba(17, 33, 60, 0.75)",
+    bgrid: "#eeeeee",
+    header: "rgba(17, 33, 90, 0.75)",
     line: "#CCCCCC",
     link: "#0036A3",
     label: "#F6F6F6",
@@ -20,7 +21,8 @@ export default {
         secondary: "#8fb5ff",
         accent: "#4da9ff",
         muted: "#181818",
-        header: "rgba(25, 35, 52, 0.75)",
+        bgrid: "#141414",
+        header: "rgba(25, 35, 52, 0.85)",
         line: "#4c4c4c",
         link: "#5b93ff",
         label: "#2e2e2e",
@@ -73,8 +75,8 @@ export default {
       bg: "none",
       border: "2px solid",
       borderColor: "line",
-      paddingLeft: 5,
-      paddingRight: 5,
+      paddingLeft: [2, 3, 5],
+      paddingRight: [2, 3, 5],
       paddingTop: 2,
       paddingBottom: 1.5,
       marginBottom: 3,
@@ -83,7 +85,7 @@ export default {
     },
   },
 
-  breakpoints: ["45em", "85em"],
+  breakpoints: ["45em", "80em"],
 
   layout: {
     default: {

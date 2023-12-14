@@ -10,7 +10,8 @@ export default memo(({ data, isConnectable }) => {
     <div
       className="category-node"
       sx={{
-        padding: "0.5rem",
+        padding: "5px 15px",
+        backgroundColor: "background",
         border: "1px solid",
         borderRadius: 30,
       }}
