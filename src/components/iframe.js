@@ -16,9 +16,9 @@ export default (props) => (
         right: 0,
       }}
     >
-      {props.children}
+      <iframe src={props.src} width="100%" height="100%"></iframe>
     </div>
 
-    <figcaption>{props.caption}</figcaption>
+    <figcaption>{props.title}</figcaption>
   </div>
 );
