@@ -5,14 +5,14 @@ import { Container, Heading, Link, Divider, Flex, Box, Label } from "@theme-ui/c
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link as gatsbyLink } from "gatsby";
+import { YouTube } from "mdx-embed";
 import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
 import Blockquote from "../components/blockquote";
 import Iframe from "../components/iframe";
-
 import "katex/dist/katex.min.css";
 
-const shortcodes = { Link, Box, Blockquote, Iframe }; // Provide common components here
+const shortcodes = { Link, Box, YouTube, Blockquote, Iframe };
 
 export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;
