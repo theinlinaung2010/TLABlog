@@ -12,19 +12,6 @@ export default {
     link: "#0036A3",
     label: "#F6F6F6",
     modes: {
-      light: {
-        text: "#333",
-        background: "#FCFCFC",
-        primary: "#4780f4",
-        secondary: "#236cff",
-        accent: "#408cca",
-        muted: "#F6F6F6",
-        bgrid: "#eeeeee",
-        header: "rgba(17, 33, 90, 0.75)",
-        line: "#CCCCCC",
-        link: "#0036A3",
-        label: "#F6F6F6",
-      },
       dark: {
         text: "#fafafa",
         background: "#1f1f1f",
