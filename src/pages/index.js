@@ -17,4 +17,4 @@ const Map = () => {
 
 export default Map;
 
-export const Head = () => <title>Map</title>;
+export const Head = () => <title>Home | TLABlog</title>;
