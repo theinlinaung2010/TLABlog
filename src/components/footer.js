@@ -12,7 +12,7 @@ const Footer = () => {
       }}
     >
       <div sx={{ mx: "auto", maxWidth: "container" }}>
-        &copy;{new Date().getFullYear()} TLABlog.&nbsp;
+        TLABlog.&nbsp;CC BY-NC 4.0.&nbsp;
         <a
           href="https://creativecommons.org/licenses/by-nc/4.0/"
           sx={{ color: "white" }}
