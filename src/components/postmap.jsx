@@ -20,9 +20,9 @@ import PostNode from "./post-node.jsx";
 
 import "reactflow/dist/style.css";
 
-const screenWidth = 1000;
+let screenWidth = 1000;
 if (typeof window !== "undefined") {
-  const screenWidth = window.innerWidth;
+  screenWidth = window.innerWidth;
 }
 const nodeWidth = Math.min(screenWidth * 0.15, 100);
 const nodeHeight = 20;
