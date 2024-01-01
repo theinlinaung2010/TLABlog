@@ -5,7 +5,7 @@ slug: "rotations-part-2"
 categories:
   - "science"
 tags:
-  - "cross-product"
+  - "cross product"
   - "rotation"
   - "torque"
   - "vector"
