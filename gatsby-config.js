@@ -6,6 +6,9 @@ module.exports = {
     title: "TLA-Blog",
     siteUrl: "https://www.yourdomain.tld",
   },
+  flags: {
+    DEV_SSR: true,
+  },
   plugins: [
     "gatsby-plugin-image",
     "gatsby-remark-katex",
@@ -28,6 +31,8 @@ module.exports = {
             options: {
               showCaptions: ["title", "alt"],
               placeHolder: "blurred",
+              maxWidth: 700,
+              markdownCaptions: true,
             },
           },
           {
@@ -49,8 +54,13 @@ module.exports = {
               className: "remark-anchor",
             },
           },
+          {
+            resolve: `gatsby-remark-copy-linked-files`,
+            options: {
+              ignoreFileExtensions: [`png`, `jpg`, `jpeg`, `bmp`, `tiff`],
+            },
+          },
           "gatsby-plugin-mdx-embed",
-          "gatsby-remark-responsive-iframe",
         ],
         // ========= End of Gatsby Remark Plugins ========= //
       },
@@ -82,7 +92,7 @@ module.exports = {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "posts",
-        path: "./src/content/posts/",
+        path: "./content/posts/",
       },
     },
   ],

@@ -20,13 +20,22 @@ import PostNode from "./post-node.jsx";
 
 import "reactflow/dist/style.css";
 
-const screenWidth = window.innerWidth;
+const screenWidth = 1000;
+if (typeof window !== "undefined") {
+  const screenWidth = window.innerWidth;
+}
 const nodeWidth = Math.min(screenWidth * 0.15, 100);
 const nodeHeight = 20;
 
 function getTextWidth(text, font) {
   // re-use canvas object for better performance
-  const canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+  let canvas;
+  if (typeof document !== "undefined") {
+    canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
+  } else {
+    return nodeWidth;
+  }
+
   const context = canvas.getContext("2d");
   context.font = font;
   const metrics = context.measureText(text);
