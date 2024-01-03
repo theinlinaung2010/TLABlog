@@ -10,9 +10,10 @@ import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
 import Blockquote from "../components/blockquote";
 import Iframe from "../components/iframe";
+import Expander from "../components/expander";
 import "katex/dist/katex.min.css";
 
-const shortcodes = { Link, Box, YouTube, Blockquote, Iframe };
+const shortcodes = { Link, Box, YouTube, Blockquote, Iframe, Expander };
 
 export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;

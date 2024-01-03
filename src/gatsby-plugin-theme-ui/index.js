@@ -279,5 +279,31 @@ export default {
         },
       },
     },
+
+    expander: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      border: "2px solid",
+      marginTop: "1rem",
+      marginBottom: "1rem",
+      borderColor: "line",
+    },
+
+    expanderButton: {
+      background: "muted",
+      color: "text",
+      border: "none",
+      cursor: "pointer",
+      display: "block",
+      padding: "1rem",
+      "&:hover": {
+        bg: "accent",
+      },
+    },
+
+    expanderContent: {
+      padding: 3,
+    },
   },
 };
