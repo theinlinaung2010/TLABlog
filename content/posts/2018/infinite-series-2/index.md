@@ -5,11 +5,8 @@ slug: "infinite-series-2"
 categories:
   - "maths"
 tags:
-  - "approximation"
-  - "bessel"
-  - "infinite"
+  - "infinite series"
   - "series"
-  - "taylor"
 coverImage: "Bessel_Functions_1st_Kind_n012.png"
 ---
 
@@ -25,7 +22,7 @@ Sine နဲ့ cosine function တွေအတွက်လဲ series expansion �
 
 $$
 \begin{aligned}
-\sin x &=\sin0+x\cos0-\frac {x^2}{2!}\sin 0-\frac{x^3}{3!}\cos0+\frac{x^4}{4!}\sin0+...
+\sin x &=\sin 0+x\cos 0-\frac {x^2}{2!}\sin 0-\frac{x^3}{3!}\cos0+\frac{x^4}{4!}\sin 0+...
 \\
 &=x-\frac{x^3}{3!}+\frac{x^5}{5!}+...
 \\
