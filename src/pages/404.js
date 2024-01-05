@@ -1,49 +1,56 @@
-import * as React from "react"
-import { Link } from "gatsby"
+/** @jsx jsx */
+import { jsx } from "theme-ui";
+import Header from "../components/header";
+import { Container, Heading } from "@theme-ui/components";
+import { Link, graphql } from "gatsby";
 
-const pageStyles = {
-  color: "#232129",
-  padding: "96px",
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
+const NotFoundPage = ({ data }) => {
+  // Get all the posts
+  const allPosts = data.allMdx.nodes;
 
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
+  // Generate a random index
+  const randomIndex = Math.floor(Math.random() * allPosts.length);
 
-const NotFoundPage = () => {
+  // Get the random post
+  const randomPost = allPosts[randomIndex];
+
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>Page not found</h1>
-      <p style={paragraphStyles}>
-        Sorry 😔, we couldn’t find what you were looking for.
-        <br />
-        {process.env.NODE_ENV === "development" ? (
-          <>
-            <br />
-            Try creating a page in <code style={codeStyles}>src/pages/</code>.
-            <br />
-          </>
-        ) : null}
-        <br />
-        <Link to="/">Go home</Link>.
-      </p>
-    </main>
-  )
-}
+    <div>
+      <Header></Header>
+      <Container as="main" sx={{ variant: "layout.main", height: "100%" }}>
+        <Heading as="h1">404: Not Found 😳</Heading>
+        <p>
+          Are you lost or did I miss something? <br />
+          👉 <Link to="https://github.com/theinlinaung2010/TLABlog/issues/new"> Report a missing page</Link>
+        </p>
 
-export default NotFoundPage
+        <p>
+          Here is a random post you might like: <br />
+          👉 <Link to={`/${randomPost.frontmatter.slug}`}>{randomPost.frontmatter.title}</Link>
+        </p>
 
-export const Head = () => <title>Not found</title>
+        <p>
+          Or you can go home: <br />
+          👉 <Link to="/">Go back to Home</Link>
+        </p>
+      </Container>
+    </div>
+  );
+};
+
+export default NotFoundPage;
+
+export const Head = () => <title>404: Not found</title>;
+
+export const query = graphql`
+  query {
+    allMdx {
+      nodes {
+        frontmatter {
+          slug
+          title
+        }
+      }
+    }
+  }
+`;
