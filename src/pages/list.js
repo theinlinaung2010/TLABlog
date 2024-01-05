@@ -7,15 +7,15 @@ import { Link, graphql } from "gatsby";
 const IndexPage = ({ data }) => {
   return (
     <Layout>
-      <Container as="main" sx={{ variant: "layout.main" }}>
-        <h1>Welcome to my Blog.</h1>
-        <ul>
-          {data.allMdx.nodes.map((node) => (
+      <Container as="main" sx={{ variant: "layout.main", bg: "muted" }}>
+        <h2>List of all posts in reverse chronological order</h2>
+        <ol>
+          {data.allMdx.nodes.map((node, index) => (
             <li key={node.title}>
-              <Link to={node.frontmatter.slug}>{node.frontmatter.title}</Link>
+              <Link to={`/${node.frontmatter.slug}`}>{node.frontmatter.title}</Link>
             </li>
           ))}
-        </ul>
+        </ol>
       </Container>
     </Layout>
   );
@@ -27,7 +27,7 @@ export const Head = () => <title>TLA Blog</title>;
 
 export const query = graphql`
   query {
-    allMdx {
+    allMdx(sort: { frontmatter: { date: DESC } }) {
       nodes {
         frontmatter {
           slug
