@@ -11,9 +11,10 @@ import Layout from "../components/layout";
 import Blockquote from "../components/blockquote";
 import Iframe from "../components/iframe";
 import Expander from "../components/expander";
+import Caption from "../components/caption";
 import "katex/dist/katex.min.css";
 
-const shortcodes = { Link, Box, YouTube, Blockquote, Iframe, Expander };
+const shortcodes = { Link, Box, YouTube, Caption, Blockquote, Iframe, Expander };
 
 export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;

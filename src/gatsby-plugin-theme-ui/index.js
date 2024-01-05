@@ -11,6 +11,7 @@ export default {
     line: "#CCCCCC",
     link: "#0036A3",
     label: "#F6F6F6",
+    code: "#cc7a43",
     modes: {
       dark: {
         text: "#fafafa",
@@ -304,6 +305,12 @@ export default {
 
     expanderContent: {
       padding: 3,
+    },
+
+    code: {
+      fontFamily: "monospace",
+      fontSize: "body",
+      color: "code",
     },
   },
 };
