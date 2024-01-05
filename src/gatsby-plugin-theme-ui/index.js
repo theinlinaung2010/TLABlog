@@ -182,6 +182,15 @@ export default {
       h3: {
         scrollMarginTop: "4rem",
       },
+      a: {
+        color: "link",
+        textDecoration: "none",
+        textUnderlineOffset: "0.2rem",
+        "&:hover": {
+          color: "secondary",
+          textDecoration: "none",
+        },
+      },
     },
 
     toc: {
@@ -228,6 +237,7 @@ export default {
       py: 3,
       "&:hover": {
         bg: "accent",
+        color: "white",
       },
     },
 
