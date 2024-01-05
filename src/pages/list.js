@@ -23,7 +23,7 @@ const IndexPage = ({ data }) => {
 
 export default IndexPage;
 
-export const Head = () => <title>TLA Blog</title>;
+export const Head = () => <title>All posts | TLA BLog</title>;
 
 export const query = graphql`
   query {

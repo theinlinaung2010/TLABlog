@@ -87,3 +87,5 @@ export const pageQuery = graphql`
     }
   }
 `;
+
+export const Head = ({ pageContext, data }) => <title>Tag: {pageContext.tag}</title>;

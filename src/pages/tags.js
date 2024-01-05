@@ -40,3 +40,5 @@ const TagsPage = ({ data }) => (
 );
 
 export default TagsPage;
+
+export const Head = () => <title>Tags | TLA BLog</title>;

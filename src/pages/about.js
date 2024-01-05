@@ -76,4 +76,4 @@ const AboutPage = () => {
 
 export default AboutPage;
 
-export const Head = () => <title>About</title>;
+export const Head = () => <title>About | TLA BLog</title>;
