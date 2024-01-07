@@ -154,6 +154,11 @@ export default {
       color: "text",
       bg: "background",
       scrollBehavior: "smooth",
+      img: {
+        maxWidth: "100%",
+        display: "block",
+        mx: "auto",
+      },
       figcaption: {
         fontWeight: 600,
         marginTop: "1rem",
