@@ -1,10 +1,12 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
-module.exports = {
+import remarkGfm from "remark-gfm";
+
+const config = {
   siteMetadata: {
     title: "TLA-Blog",
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://theinlinaung.com",
   },
   flags: {
     DEV_SSR: false,
@@ -20,7 +22,7 @@ module.exports = {
           strict: "ignore",
           remarkPlugins: [
             // Add GitHub Flavored Markdown (GFM) support
-            require(`remark-gfm`),
+            remarkGfm,
           ],
         },
         // ============ Gatsby Remark Plugins ============ //
@@ -97,3 +99,5 @@ module.exports = {
     },
   ],
 };
+
+export default config;
