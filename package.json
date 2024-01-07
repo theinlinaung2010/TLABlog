@@ -46,6 +46,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.9.0",
     "reactflow": "^11.7.4",
+    "remark-gfm": "^4.0.0",
     "remark-html-katex": "^3.0.0",
     "remark-math": "^3.0.1",
     "theme-ui": "^0.15.7"
