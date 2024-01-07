@@ -59,6 +59,7 @@ export default {
     body: 1.8,
     heading: 1.6,
     table: 1.5,
+    code: 1.3,
   },
 
   radii: {
@@ -326,6 +327,33 @@ export default {
 
     expanderContent: {
       padding: 3,
+    },
+
+    codeCopyButton: {
+      background: "none",
+      border: "1px solid",
+      position: "absolute",
+      top: 10,
+      right: 10,
+      display: ["none", "block", "block"],
+      "&:hover": {
+        borderColor: "accent",
+        bg: "accent",
+      },
+    },
+
+    codeInline: {
+      fontFamily: "monospace",
+      fontSize: "body",
+      color: "code",
+    },
+
+    prismCode: {
+      lineHeight: "code",
+      p: 3,
+      borderRadius: "default",
+      overflowX: "auto",
+      position: "relative",
     },
   },
 };
