@@ -12,7 +12,7 @@ import Layout from "../components/layout";
 import Blockquote from "../components/blockquote";
 import Iframe from "../components/iframe";
 import Expander from "../components/expander";
-import SvgImage from "../components/svgimage";
+import Image from "../components/image";
 import Caption from "../components/caption";
 import CodeBlock from "../components/code-highlighter";
 import InlineCode from "../components/inline-code";
@@ -27,7 +27,7 @@ const shortcodes = {
   Blockquote,
   Iframe,
   Expander,
-  img: SvgImage,
+  img: Image,
   code: ({ children, className }) => {
     return className ? <CodeBlock className={className}>{children}</CodeBlock> : <InlineCode>{children}</InlineCode>;
   },
