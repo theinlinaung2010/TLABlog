@@ -291,6 +291,17 @@ export default {
       },
     },
 
+    blockquote: {
+      p: 3,
+      bg: "muted",
+      borderRadius: "default",
+      font: "inherit",
+    },
+
+    blockquoteAuthor: {
+      fontStyle: "italic",
+    },
+
     expander: {
       display: "flex",
       flexDirection: "column",
@@ -315,12 +326,6 @@ export default {
 
     expanderContent: {
       padding: 3,
-    },
-
-    code: {
-      fontFamily: "monospace",
-      fontSize: "body",
-      color: "code",
     },
   },
 };
