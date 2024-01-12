@@ -2,6 +2,7 @@
 title: "Complex Numbers"
 date: "2018-04-04"
 slug: "complex-numbers-1"
+group: "complex numbers"
 categories:
   - "maths"
   - "knowledge"

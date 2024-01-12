@@ -2,6 +2,7 @@
 title: "Complex number များကို ပေါင်း၊ နှုတ်၊ မြှောက်၊ စားလုပ်ခြင်း"
 date: "2018-04-12"
 slug: "complex-numbers-2"
+group: "complex numbers"
 categories:
   - "maths"
 tags:

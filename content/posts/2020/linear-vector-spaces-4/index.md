@@ -4,6 +4,7 @@ date: "2020-12-07"
 slug: "linear-vector-spaces-4"
 categories:
   - "maths"
+group: "linear vector spaces"
 tags:
   - "eigenvalue"
   - "eigenvector"

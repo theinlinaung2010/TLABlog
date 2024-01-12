@@ -2,6 +2,7 @@
 title: "လည်ခြင်းစနစ်များ (Rotations) - Part 3"
 date: "2017-12-05"
 slug: "rotations-part-3"
+group: "rotations"
 categories:
   - "science"
 tags:

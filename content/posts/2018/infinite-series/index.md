@@ -2,6 +2,7 @@
 title: "အနန္တကိန်းစဉ်တန်းများ (Infinite Series)"
 date: "2018-03-13"
 slug: "infinite-series-1"
+group: "infinite series"
 categories:
   - "maths"
 tags:

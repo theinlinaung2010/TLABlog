@@ -2,6 +2,7 @@
 title: "ဂျီဩမေတြီ - Part 1"
 date: "2018-08-14"
 slug: "geometry-1"
+group: "geometry"
 categories:
   - "maths"
 tags:

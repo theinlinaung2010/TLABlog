@@ -2,6 +2,7 @@
 title: "ဂျီသြမေတြီ − Part 2"
 date: "2018-09-03"
 slug: "geometry-2"
+group: "geometry"
 categories:
   - "maths"
   - "knowledge"

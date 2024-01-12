@@ -2,6 +2,7 @@
 title: "Linear Vector Spaces - Part 1"
 date: "2020-09-20"
 slug: "linear-vector-spaces-1"
+group: "linear vector spaces"
 categories:
   - "maths"
 tags:

@@ -2,6 +2,7 @@
 title: "Complex numbers (Part-3)"
 date: "2018-04-24"
 slug: "complex-numbers-3"
+group: "complex numbers"
 categories:
   - "maths"
 tags:
