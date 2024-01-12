@@ -3,13 +3,12 @@ import ReactFlow, {
   ReactFlowProvider,
   Controls,
   Background,
-  ConnectionLineType,
   useStoreApi,
   useReactFlow,
   useNodesState,
   useEdgesState,
 } from "reactflow";
-import dagre from "dagre";
+import dagre from "@dagrejs/dagre";
 
 import { Link as gatsbyLink, useStaticQuery, graphql } from "gatsby";
 import { useThemeUI } from "theme-ui";
@@ -18,6 +17,7 @@ import CategoryNode from "./category-node.jsx";
 import GroupNode from "./group-node.jsx";
 import CenterNode from "./center-node.jsx";
 import PostNode from "./post-node.jsx";
+import NormalEdge from "./normal-edge.jsx";
 
 import "reactflow/dist/style.css";
 
@@ -25,8 +25,16 @@ let screenWidth = 1000;
 if (typeof window !== "undefined") {
   screenWidth = window.innerWidth;
 }
-const nodeWidth = Math.min(screenWidth * 0.15, 100);
+
+// UI constants -----------------
+const dragDisabled = screenWidth < 800;
+
+const nodeWidth = Math.min(screenWidth * 0.1, 70);
 const nodeHeight = 15;
+const rankSep = 50;
+const nodeSep = 10;
+const edgeSep = 10;
+// -------------------------------
 
 function getTextWidth(text, font) {
   // re-use canvas object for better performance
@@ -49,10 +57,10 @@ const getLayoutedElements = (nodes, edges, isLeft) => {
   dagreGraph.setDefaultEdgeLabel(() => ({}));
 
   const rankdir = isLeft ? "RL" : "LR";
-  dagreGraph.setGraph({ rankdir: rankdir, ranksep: 100, nodesep: 10, edgesep: 10 });
+  dagreGraph.setGraph({ rankdir: rankdir, ranksep: rankSep, nodesep: nodeSep, edgesep: edgeSep });
 
   nodes.forEach((node) => {
-    const _nodeWidth = node.type === "groupNode" ? nodeWidth * 1 : nodeWidth;
+    const _nodeWidth = node.type === "categoryNode" ? nodeWidth * 0.5 : nodeWidth;
     const _nodeHeight = node.type === "groupNode" ? nodeHeight * 3 : nodeHeight;
     dagreGraph.setNode(node.id, { width: _nodeWidth, height: _nodeHeight });
 
@@ -83,12 +91,12 @@ const getLayoutedElements = (nodes, edges, isLeft) => {
     // shifting the dagre node position (anchor=center center) to the top left
     if (isLeft) {
       node.position = {
-        x: nodeWithPosition.x - nodeWidth * 2 - getTextWidth(node.data.label, "12px sans-serif"),
+        x: nodeWithPosition.x - getTextWidth(node.data.label, "12px sans-serif"),
         y: nodeWithPosition.y,
       };
     } else {
       node.position = {
-        x: nodeWithPosition.x + nodeWidth * 2,
+        x: nodeWithPosition.x,
         y: nodeWithPosition.y,
       };
     }
@@ -104,6 +112,10 @@ const nodeTypes = {
   groupNode: GroupNode,
   centerNode: CenterNode,
   postNode: PostNode,
+};
+
+const edgeTypes = {
+  normalEdge: NormalEdge,
 };
 
 // the main component
@@ -186,6 +198,11 @@ const LayoutFlow = () => {
     const isLeft = left_catNodes.some((cat) => cat.id === node.category);
     node.isLeft = isLeft;
 
+    // disable dragging for mobile
+    if (dragDisabled) {
+      node.draggable = false;
+    }
+
     if (isLeft) {
       leftNodes.push(node);
     } else {
@@ -194,11 +211,10 @@ const LayoutFlow = () => {
   });
   rightNodes.push(centerNode);
 
-  console.log("allNodes", allNodes);
-
   // create edges for all nodes
   const allEdges = allNodes.map((node) => ({
     id: `e${node.id}`,
+    type: "normalEdge",
     // if node.group is undefined, then connect to category
     // otherwise connect to group
     source:
@@ -225,6 +241,16 @@ const LayoutFlow = () => {
   // find the vertical center of left and right nodes
   const lCenter = lLayoutedNodes.reduce((acc, node) => acc + node.position.y, 0) / lLayoutedNodes.length;
   const rCenter = rLayoutedNodes.reduce((acc, node) => acc + node.position.y, 0) / rLayoutedNodes.length;
+
+  // find the horizontal center of left and right nodes
+  const lxMax = lLayoutedNodes.reduce((acc, node) => Math.max(acc, node.position.x), 0);
+  const lOffset = Math.abs(lxMax) + nodeWidth * 2 + rankSep;
+
+  // put the center node in the middle of left nodes and right nodes
+  // add lOffset to left nodes
+  lLayoutedNodes.forEach((node) => {
+    node.position.x = node.position.x - lOffset;
+  });
 
   // move the left nodes so that the vertical center is the same as the right nodes
   lLayoutedNodes.forEach((node) => {
@@ -262,8 +288,8 @@ const LayoutFlow = () => {
       nodes={nodes}
       edges={edges}
       nodeTypes={nodeTypes}
+      edgeTypes={edgeTypes}
       onNodesChange={onNodesChange}
-      connectionLineType={ConnectionLineType.SmoothStep}
       fitView
       onInit={focusNode}
     >

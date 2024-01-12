@@ -2,6 +2,7 @@
 title: "Quantum Computing - Part 1"
 date: "2022-04-26"
 slug: "quantum-computing-1"
+group: "quantum computing"
 categories:
   - "applied science"
 tags:

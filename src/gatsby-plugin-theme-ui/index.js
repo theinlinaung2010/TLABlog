@@ -9,6 +9,7 @@ export default {
     bgrid: "#eeeeee",
     header: "rgba(17, 33, 90, 0.75)",
     line: "#CCCCCC",
+    edge: "#AAAAAA",
     link: "#0036A3",
     label: "#F6F6F6",
     code: "#cc7a43",

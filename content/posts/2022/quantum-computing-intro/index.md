@@ -2,6 +2,7 @@
 title: "Quantum Computing Intro"
 date: "2022-03-10"
 slug: "quantum-computing-intro"
+group: "quantum computing"
 categories:
   - "applied science"
   - "knowledge"
