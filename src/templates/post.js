@@ -40,7 +40,14 @@ export default function PostTemplate({ data, children }) {
   const tags = data.mdx.frontmatter.tags;
   const title = data.mdx.frontmatter.title;
   const slug = data.mdx.frontmatter.slug;
+  const discusConfig = {
+    shortname: config.siteMetadata.disqusShortName,
+    url: `${config.siteMetadata.siteUrl + slug}`,
+    identifier: slug,
+    title: title,
+  };
 
+  console.log(discusConfig);
   return (
     <Layout>
       <Flex>
@@ -59,14 +66,7 @@ export default function PostTemplate({ data, children }) {
           <MDXProvider components={shortcodes}>{children}</MDXProvider>
 
           <Divider sx={{ variant: "styles.divider" }} />
-          <Disqus
-            config={{
-              shortname: config.siteMetadata.disqusShortName,
-              url: `${config.siteMetadata.siteUrl + slug}`,
-              identifier: { slug },
-              title: title,
-            }}
-          />
+          <Disqus config={discusConfig} />
         </Container>
 
         <Box as="aside" sx={{ variant: "layout.sidebarRight" }}>
@@ -103,6 +103,7 @@ export const query = graphql`
         title
         date(formatString: "D MMMM YYYY")
         tags
+        slug
       }
       tableOfContents
     }
