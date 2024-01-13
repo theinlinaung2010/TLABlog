@@ -13,7 +13,12 @@ const config = {
   },
   plugins: [
     "gatsby-plugin-image",
-    "gatsby-remark-katex",
+    {
+      resolve: "gatsby-remark-katex",
+      option: {
+        strict: "ignore",
+      },
+    },
     {
       resolve: "gatsby-plugin-mdx",
       options: {
