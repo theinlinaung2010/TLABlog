@@ -29,9 +29,11 @@ if (typeof window !== "undefined") {
 // UI constants -----------------
 const dragDisabled = screenWidth < 800;
 
-const nodeWidth = Math.min(screenWidth * 0.1, 70);
+const catNodeWidth = Math.min(screenWidth * 0.1, 70);
+const groupNodeWidth = catNodeWidth * 1.5;
+const postNodeWidth = 150;
 const nodeHeight = 15;
-const rankSep = 50;
+const rankSep = 30;
 const nodeSep = 10;
 const edgeSep = 10;
 // -------------------------------
@@ -42,7 +44,7 @@ function getTextWidth(text, font) {
   if (typeof document !== "undefined") {
     canvas = getTextWidth.canvas || (getTextWidth.canvas = document.createElement("canvas"));
   } else {
-    return nodeWidth;
+    return catNodeWidth;
   }
 
   const context = canvas.getContext("2d");
@@ -60,7 +62,8 @@ const getLayoutedElements = (nodes, edges, isLeft) => {
   dagreGraph.setGraph({ rankdir: rankdir, ranksep: rankSep, nodesep: nodeSep, edgesep: edgeSep });
 
   nodes.forEach((node) => {
-    const _nodeWidth = node.type === "categoryNode" ? nodeWidth * 0.5 : nodeWidth;
+    const _nodeWidth =
+      node.type === "categoryNode" ? catNodeWidth : node.type === "groupNode" ? groupNodeWidth : postNodeWidth;
     const _nodeHeight = node.type === "groupNode" ? nodeHeight * 3 : nodeHeight;
     dagreGraph.setNode(node.id, { width: _nodeWidth, height: _nodeHeight });
 
@@ -123,7 +126,7 @@ const LayoutFlow = () => {
   // query the mdx
   const data = useStaticQuery(graphql`
     query {
-      allMdx(limit: 2000) {
+      allMdx(limit: 3000, sort: { frontmatter: { date: ASC } }) {
         categoriesGroup: group(field: { frontmatter: { categories: SELECT } }) {
           fieldValue
           totalCount
@@ -244,7 +247,7 @@ const LayoutFlow = () => {
 
   // find the horizontal center of left and right nodes
   const lxMax = lLayoutedNodes.reduce((acc, node) => Math.max(acc, node.position.x), 0);
-  const lOffset = Math.abs(lxMax) + nodeWidth * 2 + rankSep;
+  const lOffset = Math.abs(lxMax) + catNodeWidth * 2 + rankSep;
 
   // put the center node in the middle of left nodes and right nodes
   // add lOffset to left nodes
@@ -290,10 +293,11 @@ const LayoutFlow = () => {
       nodeTypes={nodeTypes}
       edgeTypes={edgeTypes}
       onNodesChange={onNodesChange}
-      fitView
       onInit={focusNode}
+      fitView
+      minZoom={0.7}
     >
-      <Controls showInteractive={false} />
+      <Controls showInteractive={false} fitViewOptions={{ duration: 800 }} />
       <Background color={theme.colors.bgrid} variant="lines" gap={15} size={1} />
     </ReactFlow>
   );

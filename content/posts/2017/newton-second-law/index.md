@@ -1,5 +1,5 @@
 ---
-title: "What is Newton's second law? The nature of scientific laws"
+title: "Newton's second law (The nature of scientific laws)"
 date: "2017-08-03"
 slug: "newton-second-law"
 categories:

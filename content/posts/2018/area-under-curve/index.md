@@ -1,5 +1,5 @@
 ---
-title: "Graph (curve) တစ်ခုအောက်ရှိ ဧရိယာအား integrate လုပ်၍ ရှာနည်း"
+title: "Curve တစ်ခုအောက်ရှိ ဧရိယာအား integrate လုပ်၍ရှာနည်း"
 date: "2018-02-02"
 slug: "area-under-curve"
 categories:
