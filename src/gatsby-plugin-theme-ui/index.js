@@ -178,7 +178,6 @@ export default {
       td: {
         color: "text",
       },
-
       h1: {
         fontSize: "h1",
         lineHeight: "heading",
@@ -360,6 +359,13 @@ export default {
       borderRadius: "default",
       overflowX: "auto",
       position: "relative",
+    },
+
+    divider: {
+      borderTop: "1px solid",
+      color: "line",
+      marginTop: "1.5rem",
+      marginBottom: "1.5rem",
     },
   },
 };

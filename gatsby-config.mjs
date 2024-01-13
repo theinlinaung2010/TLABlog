@@ -6,7 +6,9 @@ import remarkGfm from "remark-gfm";
 const config = {
   siteMetadata: {
     title: "TLA-Blog",
-    siteUrl: "https://theinlinaung.com",
+    siteUrl: "https://tlablog.netlify.app/",
+    description: "A minimalist blog with a focus on science, engineering and mathematics.",
+    disqusShortName: "tlablog",
   },
   flags: {
     DEV_SSR: false,
@@ -100,6 +102,12 @@ const config = {
       options: {
         name: "posts",
         path: "./content/posts/",
+      },
+    },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `tlablog`,
       },
     },
   ],

@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link as gatsbyLink } from "gatsby";
 import { YouTube } from "mdx-embed";
+import { Disqus } from "gatsby-plugin-disqus";
 
 import kebabCase from "lodash/kebabCase";
 import Layout from "../components/layout";
@@ -18,6 +19,7 @@ import CodeBlock from "../components/code-highlighter";
 import InlineCode from "../components/inline-code";
 
 import "katex/dist/katex.min.css";
+import config from "../../gatsby-config.mjs";
 
 const shortcodes = {
   Link,
@@ -36,6 +38,8 @@ const shortcodes = {
 export default function PostTemplate({ data, children }) {
   const toc = data.mdx.tableOfContents;
   const tags = data.mdx.frontmatter.tags;
+  const title = data.mdx.frontmatter.title;
+  const slug = data.mdx.frontmatter.slug;
 
   return (
     <Layout>
@@ -50,15 +54,19 @@ export default function PostTemplate({ data, children }) {
               {tag}
             </Link>
           ))}
-          <Divider
-            sx={{
-              borderTop: "1px solid",
-              color: "line",
-              marginTop: "1.5rem",
-              marginBottom: "1.5rem",
+          <Divider sx={{ variant: "styles.divider" }} />
+
+          <MDXProvider components={shortcodes}>{children}</MDXProvider>
+
+          <Divider sx={{ variant: "styles.divider" }} />
+          <Disqus
+            config={{
+              shortname: config.siteMetadata.disqusShortName,
+              url: `${config.siteMetadata.siteUrl + slug}`,
+              identifier: { slug },
+              title: title,
             }}
           />
-          <MDXProvider components={shortcodes}>{children}</MDXProvider>
         </Container>
 
         <Box as="aside" sx={{ variant: "layout.sidebarRight" }}>
