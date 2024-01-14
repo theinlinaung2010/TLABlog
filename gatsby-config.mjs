@@ -75,7 +75,7 @@ const config = {
       },
     },
 
-    // "gatsby-plugin-sitemap",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: "gatsby-plugin-theme-ui",
       options: {

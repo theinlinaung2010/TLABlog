@@ -1,11 +1,11 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import Layout from "../components/layout";
-import { Container, Heading, Link, Divider, Flex, Box, Label } from "@theme-ui/components";
+import { Container, Heading } from "@theme-ui/components";
 
 const AboutPage = () => {
   return (
-    <Layout>
+    <Layout title="About | TLA BLog">
       <div sx={{ backgroundColor: "muted" }}>
         <Container as="main" sx={{ variant: "layout.main" }}>
           <Heading as="h1">Welcome to TLABlog</Heading>
@@ -15,14 +15,14 @@ const AboutPage = () => {
             သိပ္ပံနဲ့နည်းပညာပိုင်းမှာ သဘောကျတဲ့အကြောင်းအရာလေးတွေ မျှဝေပေးချင်လို့ blog လေးလုပ်ထားပါတယ်။
             စိတ်ဝင်စားတဲ့သူတွေ ထပ်ပြီးလေ့လာနိုင်အောင် အခြေခံကျတဲ့အယူအဆတွေနဲ့ သင်္ချာညီမျှခြင်းတချို့ပါထည့်ရေးပါတယ်။
             ဒီလိုပြောလို့ အဆင့်မြင့်တာတွေရေးနေတယ်လို့လည်းမထင်ပါနဲ့။ အနိမ့်ဆုံး အထက်တန်းအံဆင့်တက်နေတဲ့သူတွေ
-            နားလည်နိုင်တဲ့ရှုထောင့်ကနေတော့ ရေးဖို့ကြိုးစားပါတယ်။ တကယ်လို့နားမလည်ရင် အကြောင်းအရာကခက်တာမဟုတ်ပဲ
-            ကျွန်တော်စာရေးတာညံ့လို့ဖြစ်ကြောင်း ကြိုစကားခံပါရစေ။{" "}
+            နားလည်နိုင်တဲ့ရှုထောင့်ကနေတော့ ရေးဖို့ကြိုးစားပါတယ်။
           </p>
           <p>
             ပို့စ်အဟောင်းတွေက အရင် Wordpress ဆိုက်ကနေ port လုပ်ထားတာဖြစ်ပါတယ်။ တကယ်လို့တခုခုပျက်နေတာတွေ့ရင် comment
             ပေးထားခဲ့ပေးပါ။ ဒီဘလော့ပုံစံကိုသဘောကျလို့ ကိုယ်ပိုင်ဝက်ဆိုဒ်လုပ်ပြီး စာရေးချင်တယ်ဆိုရင် ဘယ်လိုလုပ်ရမလဲဆိုတာ
-            tutorial ရေးလုပ်ဖို့စိတ်ကူးထားပါတယ်။ နည်းပညာနဲ့ရင်းနှီးသူဆိုရင် [Github
-            repo](https://github.com/theinlinaung2010/TLABlog) မှာ contribute လုပ်ဖို့လည်း ဖိတ်ခေါ်ပါတယ်။{" "}
+            tutorial ရေးလုပ်ဖို့စိတ်ကူးထားပါတယ်။ နည်းပညာနဲ့ရင်းနှီးသူဆိုရင်{" "}
+            <a href="https://github.com/theinlinaung2010/TLABlog">Github repo</a> မှာ contribute လုပ်ဖို့လည်း
+            ဖိတ်ခေါ်ပါတယ်။
           </p>
           <p> တခုခုဆက်သွယ်ချင်တာရှိရင်တော့ tla@theinlinaung.com ကို email ပို့လို့ရပါတယ်။</p>
           <h2>License</h2>
@@ -75,5 +75,3 @@ const AboutPage = () => {
 };
 
 export default AboutPage;
-
-export const Head = () => <title>About | TLA BLog</title>;

@@ -15,7 +15,7 @@ const Tags = ({ pageContext, data }) => {
 
   const nodes = data.filteredMdx.nodes;
   return (
-    <Layout>
+    <Layout title={"Tag: " + tag}>
       {/* <SEO title={`"${tag}" tag`} /> */}
       <Flex sx={{ padding: [1, 3, 5], flexDirection: ["column", "column", "row"] }}>
         <div sx={{ display: ["none", "none", "block"] }}>
@@ -87,5 +87,3 @@ export const pageQuery = graphql`
     }
   }
 `;
-
-export const Head = ({ pageContext, data }) => <title>Tag: {pageContext.tag}</title>;

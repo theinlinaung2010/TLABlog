@@ -1,24 +1,20 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import { useThemeUI, useColorMode } from "theme-ui";
-import Brighten from "./Brighten";
-import Darken from "./Darken";
+import { useColorMode } from "theme-ui";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 export default (props) => {
   const [colorMode, setColorMode] = useColorMode();
+  const nextColorMode = colorMode === "light" ? "dark" : "light";
 
   return (
     <button
-      sx={{ variant: "styles.colormodeButton" }}
+      sx={{ variant: "styles.colormodeButton", alignItems: "center" }}
       onClick={(e) => {
-        const nextColorMode = colorMode === "light" ? "dark" : "light";
         setColorMode(nextColorMode);
-        // color mode change does not apply without page refresh
-        //todo: find a way to apply color mode change without page refresh
-        window.location.reload();
       }}
     >
-      {colorMode === "light" ? <Darken /> : <Brighten />}
+      {colorMode === "light" ? <FaMoon /> : <FaSun />}
     </button>
   );
 };

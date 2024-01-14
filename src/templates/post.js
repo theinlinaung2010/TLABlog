@@ -49,7 +49,7 @@ export default function PostTemplate({ data, children }) {
 
   console.log(discusConfig);
   return (
-    <Layout>
+    <Layout title={title}>
       <Flex>
         <Box as="aside" sx={{ variant: "layout.sidebarLeft" }}></Box>
 
@@ -89,12 +89,6 @@ export default function PostTemplate({ data, children }) {
     </Layout>
   );
 }
-
-export const Head = ({ data }) => (
-  <>
-    <title>{data.mdx.frontmatter.title}</title>
-  </>
-);
 
 export const query = graphql`
   query ($id: String!) {

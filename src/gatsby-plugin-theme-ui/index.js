@@ -289,6 +289,8 @@ export default {
 
       "& svg": {
         fill: "white",
+        stroke: "none",
+        size: "1.2rem",
       },
       "&:hover": {
         "& svg": {

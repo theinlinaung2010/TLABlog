@@ -15,7 +15,7 @@ const Header = () => {
           maxWidth: "container",
           mx: "auto",
           display: "flex",
-          alignItems: "baseline",
+          alignItems: "center",
         }}
       >
         <Link

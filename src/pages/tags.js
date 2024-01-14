@@ -4,8 +4,6 @@ import { Flex, Box } from "theme-ui";
 import TagsIndex from "../components/tagsIndex";
 
 import Layout from "../components/layout";
-import { layout } from "dagre";
-// import SEO from "../components/seo";
 
 /*
 todo:
@@ -13,7 +11,7 @@ todo:
 */
 
 const TagsPage = ({ data }) => (
-  <Layout>
+  <Layout title="Tags | TLA BLog">
     {/* <SEO title="Tags" /> */}
     <Flex
       sx={{
@@ -40,5 +38,3 @@ const TagsPage = ({ data }) => (
 );
 
 export default TagsPage;
-
-export const Head = () => <title>Tags | TLA BLog</title>;
