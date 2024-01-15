@@ -60,7 +60,7 @@ export default {
     body: 1.8,
     heading: 1.6,
     table: 1.5,
-    code: 1.3,
+    codeblock: 1.3,
   },
 
   radii: {
@@ -356,7 +356,8 @@ export default {
     },
 
     prismCode: {
-      lineHeight: "code",
+      fontSize: ["small", "body", "body"],
+      lineHeight: "codeblock",
       p: 3,
       borderRadius: "default",
       overflowX: "auto",

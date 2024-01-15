@@ -39,6 +39,7 @@ const Footer = () => {
         </div>
         <Link
           to="https://github.com/theinlinaung2010/TLABlog"
+          target="_blank"
           sx={{ mx: [3, 2, 0], color: "white", display: ["none", "flex", "flex"], "&:hover": { color: "accent" } }}
         >
           <FaGithub size="1.2rem" />
