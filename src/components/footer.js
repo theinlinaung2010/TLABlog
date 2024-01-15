@@ -37,13 +37,14 @@ const Footer = () => {
             </a>
           </span>
         </div>
-        <Link
-          to="https://github.com/theinlinaung2010/TLABlog"
+        <a
+          href="https://github.com/theinlinaung2010/TLABlog"
           target="_blank"
+          rel="noopener noreferrer"
           sx={{ mx: [3, 2, 0], color: "white", display: ["none", "flex", "flex"], "&:hover": { color: "accent" } }}
         >
           <FaGithub size="1.2rem" />
-        </Link>
+        </a>
       </div>
     </footer>
   );
