@@ -47,7 +47,6 @@ export default function PostTemplate({ data, children }) {
     title: title,
   };
 
-  console.log(discusConfig);
   return (
     <Layout title={title}>
       <Flex>

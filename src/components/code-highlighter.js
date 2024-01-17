@@ -4,6 +4,7 @@ import { jsx } from "theme-ui";
 import { Highlight, themes } from "prism-react-renderer";
 import { Button } from "@theme-ui/components";
 import React from "react";
+import { MdOutlineContentCopy } from "react-icons/md";
 
 export default (props) => {
   const code = props.children;
@@ -23,7 +24,7 @@ export default (props) => {
     <Highlight theme={themes.vsDark} code={code} language={language}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         return (
-          <pre style={style} sx={{ variant: "styles.prismCode" }}>
+          <pre data-executable style={style} sx={{ variant: "styles.prismCode" }}>
             <Button
               variant="styles.codeCopyButton"
               onClick={() => {
@@ -32,7 +33,7 @@ export default (props) => {
                 setTimeout(() => setIsCopied(false), 2000);
               }}
             >
-              {isCopied ? "Copied 🎉" : "Copy"}
+              {isCopied ? "Copied 🎉" : <MdOutlineContentCopy />}
             </Button>
             <code className={className}>
               {tokens.slice(0, -1).map((line, i) => {

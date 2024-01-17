@@ -87,6 +87,10 @@ export default {
     },
   },
 
+  transitions: {
+    navlinks: "0.2s",
+  },
+
   breakpoints: ["45em", "80em"],
 
   layout: {
@@ -241,6 +245,7 @@ export default {
       lineHeight: 1,
       px: 3,
       py: 3,
+      transition: "navlinks",
       "&:hover": {
         bg: "accent",
         color: "white",
@@ -291,12 +296,21 @@ export default {
         fill: "white",
         stroke: "none",
         size: "1.2rem",
+        transition: "navlinks",
       },
       "&:hover": {
         "& svg": {
           fill: "accent",
         },
       },
+    },
+
+    githubButton: {
+      mx: [3, 2, 0],
+      color: "white",
+      display: ["none", "flex", "flex"],
+      transition: "navlinks",
+      "&:hover": { color: "accent" },
     },
 
     blockquote: {
@@ -338,8 +352,9 @@ export default {
 
     codeCopyButton: {
       background: "none",
-      border: "1px solid",
+      border: "none",
       position: "absolute",
+      cursor: "pointer",
       top: 10,
       right: 10,
       display: ["none", "block", "block"],
