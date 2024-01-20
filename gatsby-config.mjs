@@ -34,7 +34,12 @@ const config = {
         },
         // ============ Gatsby Remark Plugins ============ //
         gatsbyRemarkPlugins: [
-          "gatsby-remark-katex",
+          {
+            resolve: `gatsby-remark-katex`,
+            options: {
+              strict: `ignore`,
+            },
+          },
           {
             resolve: "gatsby-remark-images",
             options: {
