@@ -5,6 +5,7 @@ slug: "ode-1"
 categories:
   - "maths"
   - "science"
+group: "ordinary differential equations"
 tags:
   - "differential-equations"
   - "homogeneous"

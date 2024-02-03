@@ -4,6 +4,7 @@ date: "2018-12-24"
 slug: "kinetic-theory-of-gases-1"
 categories:
   - "science"
+group: "thermodynamics"
 tags:
   - "thermodynamics"
   - "statistical mechanics"
