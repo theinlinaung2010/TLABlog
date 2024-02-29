@@ -7,7 +7,7 @@ export default (props) => (
     <div
       sx={{
         width: "100%",
-        height: "90%",
+        height: "93%",
         position: "absolute",
         border: "none",
         top: 0,
