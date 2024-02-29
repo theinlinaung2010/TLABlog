@@ -1,5 +1,5 @@
 ---
-title: "Complex numbers (Part-3)"
+title: "Geometric interpretation of complex numbers"
 date: "2018-04-24"
 slug: "complex-numbers-3"
 group: "complex numbers"
@@ -11,7 +11,7 @@ tags:
 coverImage: "Complex-plane.png"
 ---
 
-## Complex number များကို ပုံဖြင့်မြင်ယောင်ကြည့်ခြင်း (Geometric interpretation of complex numbers)
+## Complex number များကို ပုံဖြင့်မြင်ယောင်ကြည့်ခြင်း
 
 Real number တွေကို number line ဒါမှမဟုတ် $ x $ axis ပေါ်မှာ အစဉ်လိုက်နေရာချလို့ရပါတယ်။ Complex number တွေကိုတော့ complex plane လို့ခေါ်တဲ့ $ x-y $ plane ပေါ်မှာနေရာချရပါတယ်။ $ z=x+iy $ နဲ့ $ z^\star $ ကိုအောက်ကပုံမှာနေရာချပြထားပါတယ်။
 
