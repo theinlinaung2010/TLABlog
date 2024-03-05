@@ -6,7 +6,7 @@ categories:
   - "maths"
   - "science"
 tags:
-  - "vectors"
+  - "vector"
   - "transformation"
 coverImage: "linear-transformation1.png"
 ---

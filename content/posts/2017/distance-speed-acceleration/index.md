@@ -7,7 +7,7 @@ categories:
   - "science"
 tags:
   - "calculus"
-  - "differentiation"
+  - "differential equation"
   - "integration"
   - "introductory physics"
   - "motion"

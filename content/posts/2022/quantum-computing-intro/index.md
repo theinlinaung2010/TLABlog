@@ -7,7 +7,7 @@ categories:
   - "applied science"
   - "knowledge"
 tags:
-  - "quantum-computing"
+  - "quantum computing"
 coverImage: "IBM_quantum_comp.jpg"
 ---
 

@@ -6,7 +6,7 @@ group: "rotations"
 categories:
   - "science"
 tags:
-  - "angular-momentum"
+  - "angular momentum"
   - "momentum"
   - "rotation"
   - "vector"

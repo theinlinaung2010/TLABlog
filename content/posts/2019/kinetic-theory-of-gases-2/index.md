@@ -6,9 +6,7 @@ categories:
   - "science"
 group: "thermodynamics"
 tags: 
-  - "avogadros-law"
-  - "kinetic-theory"
-  - "statistical-mechanics"
+  - "statistical mechanics"
 ---
 
 ![](images/Two-gases-in-a-cylinder-1024x447.png)

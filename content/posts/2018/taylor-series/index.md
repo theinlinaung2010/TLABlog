@@ -6,8 +6,7 @@ categories:
   - "maths"
 group: "infinite series"
 tags:
-  - "function"
-  - "taylor series"
+  - "infinite series"
 ---
 
 ## Representing functions with derivatives

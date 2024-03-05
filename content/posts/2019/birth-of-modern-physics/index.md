@@ -5,10 +5,9 @@ slug: "birth-of-modern-physics"
 categories: 
   - "science"
 tags: 
-  - "history"
   - "mechanics"
-  - "quantum-theory"
-  - "statistical-mechanics"
+  - "quantum theory"
+  - "statistical mechanics"
   - "thermodynamics"
 ---
 

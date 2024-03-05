@@ -7,8 +7,7 @@ categories:
   - "science"
 group: "ordinary differential equations"
 tags:
-  - "differential-equations"
-  - "homogeneous"
+  - "differential equation"
   - "linearity"
   - "ode"
   - "superposition"

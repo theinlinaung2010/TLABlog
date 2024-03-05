@@ -9,6 +9,7 @@ group: "ordinary differential equations"
 tags:
   - "calculus"
   - "ode"
+  - "differential equation"
   - "oscillation"
 ---
 

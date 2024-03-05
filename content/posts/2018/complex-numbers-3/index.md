@@ -6,7 +6,7 @@ group: "complex numbers"
 categories:
   - "maths"
 tags:
-  - "complex numbers"
+  - "complex number"
   - "polar form"
 coverImage: "Complex-plane.png"
 ---

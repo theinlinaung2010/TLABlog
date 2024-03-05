@@ -6,7 +6,6 @@ categories:
   - "knowledge"
 tags:
   - "award"
-  - "ig noble prize"
   - "research paper"
 coverImage: "stinker-250.gif"
 ---

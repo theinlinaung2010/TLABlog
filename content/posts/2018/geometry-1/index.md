@@ -6,8 +6,7 @@ group: "geometry"
 categories:
   - "maths"
 tags:
-  - "axioms"
-  - "euclid"
+  - "axiom"
   - "geometry"
   - "induction"
 ---

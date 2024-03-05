@@ -6,7 +6,6 @@ group: "complex numbers"
 categories:
   - "maths"
 tags:
-  - "arithmetic"
   - "complex number"
 ---
 

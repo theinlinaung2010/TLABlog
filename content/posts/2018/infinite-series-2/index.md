@@ -7,7 +7,6 @@ categories:
   - "maths"
 tags:
   - "infinite series"
-  - "series"
 coverImage: "Bessel_Functions_1st_Kind_n012.png"
 ---
 

@@ -6,7 +6,6 @@ categories:
   - "knowledge"
 tags: 
   - "atoms"
-  - "nuclear-reaction"
 coverImage: "carlsagan1.jpg"
 ---
 

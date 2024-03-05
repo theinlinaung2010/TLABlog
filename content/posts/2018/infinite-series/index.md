@@ -8,7 +8,7 @@ categories:
 tags:
   - "convergence"
   - "divergence"
-  - "series"
+  - "infinite series"
 coverImage: "Infinite-series-header.gif"
 ---
 
