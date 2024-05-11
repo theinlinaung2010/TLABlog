@@ -242,8 +242,8 @@ const LayoutFlow = () => {
   const { nodes: rLayoutedNodes, edges: rLayoutedEdges } = getLayoutedElements(rightNodes, rightEdges, false);
 
   // find the vertical center of left and right nodes
-  const lCenter = lLayoutedNodes.reduce((acc, node) => acc + node.position.y, 0) / lLayoutedNodes.length;
-  const rCenter = rLayoutedNodes.reduce((acc, node) => acc + node.position.y, 0) / rLayoutedNodes.length;
+  const lCenter = left_catNodes.reduce((acc, node) => acc + node.position.y, 0) / left_catNodes.length;
+  const rCenter = right_catNodes.reduce((acc, node) => acc + node.position.y, 0) / right_catNodes.length;
 
   // find the horizontal center of left and right nodes
   const lxMax = lLayoutedNodes.reduce((acc, node) => Math.max(acc, node.position.x), 0);
@@ -259,6 +259,9 @@ const LayoutFlow = () => {
   lLayoutedNodes.forEach((node) => {
     node.position.y = node.position.y + (rCenter - lCenter);
   });
+
+  // position the center node
+  centerNode.position.y = rCenter;
 
   const allLayoutedNodes = [...lLayoutedNodes, ...rLayoutedNodes];
   const allLayoutedEdges = [...lLayoutedEdges, ...rLayoutedEdges];
