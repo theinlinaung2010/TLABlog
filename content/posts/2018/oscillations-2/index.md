@@ -7,7 +7,7 @@ categories:
   - "science"
 group: "harmonic oscillator"
 tags:
-  - "lde"
+  - "differential equation"
   - "harmonic"
   - "oscillation"
 coverImage: "Spring-mass-system.png"

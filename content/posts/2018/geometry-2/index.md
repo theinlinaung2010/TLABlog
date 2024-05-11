@@ -7,7 +7,7 @@ categories:
   - "maths"
   - "knowledge"
 tags:
-  - "axioms"
+  - "axiom"
   - "geometry"
   - "induction"
 ---

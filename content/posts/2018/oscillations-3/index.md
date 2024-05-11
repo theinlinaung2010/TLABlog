@@ -8,7 +8,7 @@ categories:
 group: "harmonic oscillator"
 tags:
   - "harmonic"
-  - "oscillations"
+  - "oscillation"
   - "transient"
 ---
 

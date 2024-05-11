@@ -7,7 +7,6 @@ categories:
 tags:
   - "motion"
   - "momentum"
-  - "mass"
 coverImage: "audi-2355679_1920.jpg"
 ---
 

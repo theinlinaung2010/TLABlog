@@ -9,7 +9,6 @@ tags:
   - "eigenvector"
   - "linear algebra"
   - "quantum computing"
-  - "quantum gate"
   - "qubit"
 coverImage: "X_gate.gif"
 ---

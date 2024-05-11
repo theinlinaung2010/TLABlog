@@ -7,7 +7,6 @@ categories:
   - "science"
 group: "ordinary differential equations"
 tags:
-  - "complementary-function"
   - "oscillation"
   - "transient"
 ---

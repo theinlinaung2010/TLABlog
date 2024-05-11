@@ -5,11 +5,8 @@ slug: "if-brain-was-a-harddisk"
 categories:
   - "knowledge"
 tags:
-  - "brain"
-  - "data"
-  - "hard-disk"
+  - "biology"
   - "psychology"
-  - "storage"
 coverImage: "artificial-intelligence-2228610_1280.jpg"
 ---
 
