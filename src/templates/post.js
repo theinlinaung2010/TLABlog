@@ -74,11 +74,24 @@ export default function PostTemplate({ data, children }) {
               <h3>မာတိကာ</h3>
               <ul style={{ padding: 0 }}>
                 {toc.items.map((item) => (
-                  <Label key={item.url} sx={{ variant: "styles.tocitem" }}>
-                    <Link as={gatsbyLink} to={item.url}>
-                      {item.title}
-                    </Link>
-                  </Label>
+                  <li key={item.url} style={{ listStyle: "none" }}>
+                    <Label sx={{ variant: "styles.tocitem" }}>
+                      <Link as={gatsbyLink} to={item.url}>
+                        {item.title}
+                      </Link>
+                    </Label>
+                    {item.items && (
+                      <ul style={{ paddingLeft: "1rem", marginTop: "0.25rem" }}>
+                        {item.items.map((subItem) => (
+                          <Label key={subItem.url} sx={{ variant: "styles.tocitem" }}>
+                            <Link as={gatsbyLink} to={subItem.url}>
+                              {subItem.title}
+                            </Link>
+                          </Label>
+                        ))}
+                      </ul>
+                    )}
+                  </li>
                 ))}
               </ul>
             </Box>
