@@ -5,7 +5,6 @@ import { Container, Heading, Link, Divider, Flex, Box, Label } from "@theme-ui/c
 import { graphql } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
 import { Link as gatsbyLink } from "gatsby";
-import { YouTube } from "mdx-embed";
 import { Disqus } from "gatsby-plugin-disqus";
 
 import kebabCase from "lodash/kebabCase";
@@ -17,6 +16,7 @@ import Image from "../components/image";
 import Caption from "../components/caption";
 import CodeBlock from "../components/code-highlighter";
 import InlineCode from "../components/inline-code";
+import YouTube from "../components/youtube";
 
 import "katex/dist/katex.min.css";
 import config from "../../gatsby-config.mjs";
