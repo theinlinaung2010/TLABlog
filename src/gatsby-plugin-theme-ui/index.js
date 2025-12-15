@@ -49,6 +49,7 @@ export default {
   fontWeights: {
     body: 400,
     heading: 600,
+    code: 400,
   },
 
   sizes: {
@@ -226,6 +227,15 @@ export default {
 
     h3: {
       fontSize: "h3",
+      marginTop: "1.5rem",
+    },
+
+    "pre + h3": {
+      marginTop: "3rem",
+    },
+
+    "pre + h2": {
+      marginTop: "4rem",
     },
 
     a: {
@@ -365,13 +375,14 @@ export default {
     },
 
     codeInline: {
-      fontFamily: "monospace",
+      fontFamily: "Cascadia Code, monospace",
       fontSize: "body",
+      fontWeight: "code",
       color: "code",
     },
 
     prismCode: {
-      fontSize: ["small", "body", "body"],
+      fontSize: "small",
       lineHeight: "codeblock",
       p: 3,
       borderRadius: "default",
